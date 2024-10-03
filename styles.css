@@ -40,9 +40,9 @@ body {
 h1 {
     font-size: 32px;
     margin-bottom: 30px;
-    text-shadow: 2px 2px #ffff00;
+    text-shadow: 2px 2px #FFFF00; /* Ombra gialla */
     color: #ff00ff;
-    border: 4px solid #ffffoo;
+    border: 4px solid #FFFF00; /* Bordo giallo corretto */
     padding: 10px;
     display: inline-block;
 }
@@ -54,6 +54,7 @@ h1 {
     text-shadow: 1px 1px #ff00ff;
 }
 
+/* Stile per il pulsante Start Game e altri pulsanti */
 .button {
     background-color: #000;
     color: #00ff00;
@@ -80,12 +81,41 @@ h1 {
     transform: translate(-2px, -2px);
 }
 
-img {
+/* Stili per le immagini all'interno del gioco */
+#game img {
     max-width: 100%;
     height: auto;
     margin-bottom: 30px;
     border: 4px solid #00ff00;
     box-shadow: 2px 2px #ff00ff;
+}
+
+/* Stile per l'immagine della schermata iniziale */
+.schermata-iniziale {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 30px;
+    border: 4px solid #00ff00;
+    box-shadow: 2px 2px #ff00ff;
+    position: relative;
+}
+
+/* Effetto scanline per l'immagine della schermata iniziale */
+.schermata-iniziale::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: repeating-linear-gradient(
+        to bottom,
+        transparent,
+        transparent 3px,
+        rgba(0, 0, 0, 0.2) 3px,
+        rgba(0, 0, 0, 0.2) 4px
+    );
+    pointer-events: none;
 }
 
 .feedback {
@@ -105,9 +135,11 @@ img {
 #game h2 {
     font-size: 28px;
     margin-bottom: 20px;
-    text-shadow: 2px 2px #ffff00;
+    text-shadow: 2px 2px #FFFF00; /* Ombra gialla */
     color: #ff00ff;
-
+    border: 4px solid #FFFF00; /* Bordo giallo */
+    padding: 10px;
+    display: inline-block;
 }
 
 /* Rimuovi l'outline dai pulsanti quando focalizzati */
@@ -138,7 +170,8 @@ img {
         border-width: 2px;
     }
 
-    img {
+    /* Modifiche per l'immagine della schermata iniziale su dispositivi mobili */
+    .schermata-iniziale {
         margin-bottom: 20px;
         border-width: 2px;
     }
