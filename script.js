@@ -5,7 +5,7 @@ const questions = [
     {
         question: "You are a young planet forming in the habitable zone. What do you do first?",
         options: [
-            { text: "Form the oceans", correct: false },
+            { text: "Create an ocean", correct: false },
             { text: "Create an atmosphere", correct: true }
         ],
         image: "images/planet.png"
