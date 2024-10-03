@@ -220,20 +220,47 @@ function showResults() {
     let percentage = (score / maxScore) * 100;
 
     if (percentage === 100) {
-        message = `<h2>100% Life!</h2>
-                   <p>Congratulations, you have created life!</p>`;
+        message = `<h2>${percentage}% - You have achieved stable life, and your planet will flourish!</h2>`;
+    } else if (percentage >= 95) {
+        message = `<h2>${percentage}% - You have obtained life, but be careful, it could go extinct.</h2>`;
+    } else if (percentage >= 90) {
+        message = `<h2>${percentage}% - Life is forming, but one false step and you could lose it.</h2>`;
+    } else if (percentage >= 85) {
+        message = `<h2>${percentage}% - Life is almost formed, but the planet is not yet stable.</h2>`;
     } else if (percentage >= 80) {
-        message = `<h2>${percentage}%</h2>
-                   <p>You almost made it, you had an atmosphere, the right ingredients, but something is still missing!</p>`;
+        message = `<h2>${percentage}% - You have essential ingredients, something like a cell, but more is needed for life.</h2>`;
+    } else if (percentage >= 75) {
+        message = `<h2>${percentage}% - The planet is shaping up, water is warm, rocks are ready, but key components are missing.</h2>`;
+    } else if (percentage >= 70) {
+        message = `<h2>${percentage}% - You have water, but the atmosphere is unstable. Maybe was the magnetic field?</h2>`;
+    } else if (percentage >= 65) {
+        message = `<h2>${percentage}% - Basic elements are present, same for atmosphere and ocenas, but conditions are harsh.</h2>`;
+    } else if (percentage >= 60) {
+        message = `<h2>${percentage}% - Volcanic activity dominates; life is unlikely.</h2>`;
+    } else if (percentage >= 55) {
+        message = `<h2>${percentage}% - The planet is too cold; life cannot thrive.</h2>`;
     } else if (percentage >= 50) {
-        message = `<h2>${percentage}%</h2>
-                   <p>You were halfway there, the planet seemed hospitable but something happened that prevented the birth of life.</p>`;
+        message = `<h2>${percentage}% - You were halfway there, but something went wrong.</h2>`;
+    } else if (percentage >= 45) {
+        message = `<h2>${percentage}% - The atmosphere is toxic, unsuitable for life.</h2>`;
+    } else if (percentage >= 40) {
+        message = `<h2>${percentage}% - Severe storms prevent the development of life.</h2>`;
+    } else if (percentage >= 35) {
+        message = `<h2>${percentage}% - Radiation levels are too high; life cannot form.</h2>`;
     } else if (percentage >= 30) {
-        message = `<h2>${percentage}%</h2>
-                   <p>The planet is there, but most of the ingredients are still missing!</p>`;
+        message = `<h2>${percentage}% - The planet lacks essential chemicals for life.</h2>`;
+    } else if (percentage >= 25) {
+        message = `<h2>${percentage}% - The planet is barren and lifeless.</h2>`;
+    } else if (percentage >= 20) {
+        message = `<h2>${percentage}% - You have a planet, but it's missing almost everything.</h2>`;
+    } else if (percentage >= 15) {
+        message = `<h2>${percentage}% - Just a rocky mass floating in space.</h2>`;
+    } else if (percentage >= 10) {
+        message = `<h2>${percentage}% - A lifeless rock with no atmosphere or water.</h2>`;
+    } else if (percentage >= 5) {
+        message = `<h2>${percentage}% - A failed attempt at planet formation.</h2>`;
     } else {
-        message = `<h2>${percentage}%</h2>
-                   <p>I'm sorry, but maybe you need to start over.</p>`;
+        message = `<h2>${percentage}% - I'm sorry, but maybe you need to start over.</h2>`;
     }
 
 
