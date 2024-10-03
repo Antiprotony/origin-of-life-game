@@ -3,7 +3,7 @@
 // 1. Game Questions
 const questions = [
     {
-        question: "You are a young planet forming. What do you do first?",
+        question: "You are a young planet forming in the habitable zone. What do you do first?",
         options: [
             { text: "Form the oceans", correct: false },
             { text: "Create an atmosphere", correct: true }
@@ -11,15 +11,15 @@ const questions = [
         image: "images/planet.png"
     },
     {
-        question: "Which chemical elements are mostly required on your surface and oceans?",
+        question: "You have created an atmosphere and than an ocean. Which chemical elements are mostly required on lands and waters?",
         options: [
-            { text: "Au, Pt, Ag, Ar, Kr", correct: false },
+            { text: "Ca, K, Sc, As, Au", correct: false },
             { text: "C, N, O, P, S, H", correct: true }
         ],
         image: "images/elements.png"
     },
     {
-        question: "Which is the main energy source in the origin of life?",
+        question: "Now the source of energy! Which is the main energy source that I need in order to origin life?",
         options: [
             { text: "Geothermal gradient", correct: true },
             { text: "Solar energy", correct: false }
@@ -27,87 +27,87 @@ const questions = [
         image: "images/energy.png"
     },
     {
-        question: "Which molecules are fundamental for a primordial cell?",
+        question: "Now you have a stable atmosphere, geothermal gradients and so on. What do you need next?",
         options: [
-            { text: "Vitamins and inorganic compounds", correct: false },
-            { text: "Proteins and nucleic acids", correct: true }
+            { text: "Solid rocks", correct: false },
+            { text: "Porous rocks", correct: true }
         ],
         image: "images/molecole.png"
     },
     {
-        question: "Which conditions favor the formation of the prebiotic molecules?",
+        question: "The main ingredients are ready! Which conditions are the best to the formation of prebiotic molecules?",
         options: [
-            { text: "Warm water, moderate UV radiation, presence of biometals", correct: true },
-            { text: "Cold water, high UV radiation, absence of biometals", correct: false }
+            { text: "Warm water, moderate UV radiation", correct: true },
+            { text: "Cold water, high UV radiation", correct: false }
         ],
         image: "images/fumarole.png"
     },
     {
-        question: "Now we have macromolecules, how can we carry information?",
+        question: "The conditions are perfect (maybe)! Now we need the first molecule able to replicate with a degree of information. Which is",
         options: [
-            { text: "Thanks to the surrounding rocks", correct: false },
-            { text: "Through DNA/RNA combination", correct: true }
+            { text: "DNA/RNA", correct: false },
+            { text: "Proteins", correct: true }
         ],
         image: "images/dna.png"
     },
     {
-        question: "What was the primordial soup hypothesis proposed by Oparin and Haldane?",
+        question: "Molecules, energy, warm water. The primordial soup! Now macromoleculs are inside pores of rocks, we need something more biotic to confine them",
         options: [
-            { text: "Life originated from outer space", correct: false },
-            { text: "Life began in a warm pond with a mix of chemicals", correct: true }
+            { text: "We produce vitamins", correct: false },
+            { text: "We produce lipids", correct: true }
         ],
         image: "images/primordial_soup.png"
     },
     {
-        question: "Which experiment demonstrated the synthesis of organic compounds from inorganic precursors?",
+        question: "I need something more",
         options: [
-            { text: "Gregor Mendel's pea plant experiments", correct: false },
-            { text: "Miller-Urey experiment", correct: true }
+            { text: "U, Th, Xe, Ar, Sb", correct: false },
+            { text: "Fe, Mo, Cu, Ni, W", correct: true }
         ],
         image: "images/miller_urey.png"
     },
     {
-        question: "What are the building blocks of nucleic acids crucial for life?",
+        question: "I forgot something fundamental!",
         options: [
-            { text: "Nucleotides", correct: true },
-            { text: "Lipids", correct: false }
+            { text: "Strong magnetic field", correct: true },
+            { text: "Weak magnetic field", correct: false }
         ],
         image: "images/nucleotides.png"
     },
     {
-        question: "Which molecule is believed to have been the first genetic material?",
+        question: "What can help me to keep me warm",
         options: [
-            { text: "DNA", correct: false },
-            { text: "RNA", correct: true }
+            { text: "Massive presence of deserts", correct: false },
+            { text: "Albedo effect", correct: true }
         ],
         image: "images/rna.png"
     },
     {
-        question: "What theory suggests that life may have begun at hydrothermal vents in the ocean floor?",
+        question: "On the bottom of my oceans something is mixing chemicals with the water! What is it?",
         options: [
-            { text: "Panspermia theory", correct: false },
-            { text: "Deep-sea vent theory", correct: true }
+            { text: "A big magmatic cauldron!", correct: false },
+            { text: "Oh! An Hydrothermal Vent!", correct: true }
         ],
         image: "images/hydrothermal_vent.png"
     },
     {
-        question: "Which process describes the formation of complex molecules from simpler ones in early Earth's conditions?",
+        question: "In my primordial phase, Which gasses I need to host life on my surface/subsurface/ocean?",
         options: [
-            { text: "Photosynthesis", correct: false },
-            { text: "Abiogenesis", correct: true }
+            { text: "Oxygen, Noble Gasses and Nitrogen", correct: false },
+            { text: "Methane, Ammonia and Hydrogen Sulfide", correct: true }
         ],
         image: "images/abiogenesis.png"
     },
     {
-        question: "What term describes the hypothetical RNA-based life forms that may have preceded cellular life?",
+        question: "I think that I'm almost ready for life. Which life can I choose first?",
         options: [
-            { text: "Gaia hypothesis", correct: false },
-            { text: "RNA world hypothesis", correct: true }
+            { text: "Eukaryotes", correct: false },
+            { text: "Prokariotes", correct: true }
         ],
         image: "images/rna_world.png"
     },
     {
-        question: "Which type of chemical bond is essential for the formation of complex organic molecules?",
+        question: "Which type of chemical bond I required for the formation of complex organic molecules?",
         options: [
             { text: "Covalent bonds", correct: true },
             { text: "Ionic bonds", correct: false }
@@ -115,18 +115,18 @@ const questions = [
         image: "images/covalent_bond.png"
     },
     {
-        question: "What is the significance of liposomes in the origin of life studies?",
+        question: "Some of you told me that I really need lipids. But Why?!",
         options: [
-            { text: "They are evidence of extraterrestrial life", correct: false },
+            { text: "They are able to procuce essentials molecules for living organisms", correct: false },
             { text: "They model early cell membranes", correct: true }
         ],
         image: "images/liposome.png"
     },
     {
-        question: "Which theory suggests that life was brought to Earth from elsewhere in the universe?",
+        question: "I really would like to have life on me! But sometime I miss of some ingredients. Maybe my celestial friends can help me. But, Who?",
         options: [
-            { text: "Panspermia theory", correct: true },
-            { text: "Endosymbiotic theory", correct: false }
+            { text: "Comets and asteroids", correct: true },
+            { text: "Moons and planets", correct: false }
         ],
         image: "images/panspermia.png"
     }
@@ -213,19 +213,29 @@ function selectOption(index) {
     }, 2000); // Wait 2 seconds
 }
 
-// 8. Function to Show the Final Results
+// 8. Function to Show the Final Result
 function showResults() {
     const gameDiv = document.getElementById('game');
     let message = '';
     let percentage = (score / maxScore) * 100;
 
-    if (score === maxScore) {
-        message = `<h2>Congratulations, you have created life!</h2>`;
+    if (percentage === 100) {
+        message = `<h2>100% Life!</h2>
+                   <p>Congratulations, you have created life!</p>`;
     } else if (percentage >= 80) {
-        message = `<h2>Great job! You're almost there.</h2>`;
+        message = `<h2>${percentage}%</h2>
+                   <p>You almost made it, you had an atmosphere, the right ingredients, but something is still missing!</p>`;
+    } else if (percentage >= 50) {
+        message = `<h2>${percentage}%</h2>
+                   <p>You were halfway there, the planet seemed hospitable but something happened that prevented the birth of life.</p>`;
+    } else if (percentage >= 30) {
+        message = `<h2>${percentage}%</h2>
+                   <p>The planet is there, but most of the ingredients are still missing!</p>`;
     } else {
-        message = `<h2>Unfortunately, you did not create life. Try again!</h2>`;
+        message = `<h2>${percentage}%</h2>
+                   <p>I'm sorry, but maybe you need to start over.</p>`;
     }
+
 
     gameDiv.innerHTML = `
         ${message}
