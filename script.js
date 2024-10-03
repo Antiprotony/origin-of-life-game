@@ -234,7 +234,7 @@ function showResults() {
     } else if (percentage >= 70) {
         message = `<h2>${percentage}% - You have water, but the atmosphere is unstable. Maybe was the magnetic field?</h2>`;
     } else if (percentage >= 65) {
-        message = `<h2>${percentage}% - Basic elements are present, same for atmosphere and ocenas, but conditions are harsh.</h2>`;
+        message = `<h2>${percentage}% - Basic elements are present, same for an atmosphere and an oceans, but conditions are harsh.</h2>`;
     } else if (percentage >= 60) {
         message = `<h2>${percentage}% - Volcanic activity dominates; life is unlikely.</h2>`;
     } else if (percentage >= 55) {
