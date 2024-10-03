@@ -149,6 +149,11 @@ function startGame() {
     // Start the background music
     backgroundMusic.play();
 
+    // Nascondi l'immagine della schermata iniziale
+    const startImage = document.getElementById('start-image');
+    if (startImage) {
+        startImage.style.display = 'none';
+
     // Hide the Start Game button
     startButton.style.display = 'none';
 
