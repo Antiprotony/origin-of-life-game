@@ -91,7 +91,7 @@ const questions = [
         image: "images/hydrothermal_vent.png"
     },
     {
-        question: "In my primordial phase, Which gasses I need to host life on my surface/subsurface/ocean?",
+        question: "In my primordial phase, Which gasses I need to host life?",
         options: [
             { text: "Oxygen, and Noble Gasses", correct: false },
             { text: "Methane, Ammonia and Hydrogen Sulfide", correct: true }
@@ -123,7 +123,7 @@ const questions = [
         image: "images/liposome.png"
     },
     {
-        question: "I really would like to have life on me! But sometime I miss of some ingredients. Maybe my celestial friends can help me. But, Who?",
+        question: "I really would like to have life on me! But sometime I miss of some chemicals. Maybe my celestial friends can help me. But, Who?",
         options: [
             { text: "Comets and asteroids", correct: true },
             { text: "Moons and planets", correct: false }
