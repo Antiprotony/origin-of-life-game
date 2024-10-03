@@ -45,8 +45,8 @@ const questions = [
     {
         question: "The conditions are perfect (maybe)! Now we need the first molecule able to replicate with a degree of information. Which is",
         options: [
-            { text: "DNA/RNA", correct: false },
-            { text: "Proteins", correct: true }
+            { text: "Proteins", correct: false },
+            { text: "DNA/RNA", correct: true }
         ],
         image: "images/dna.png"
     },
@@ -93,7 +93,7 @@ const questions = [
     {
         question: "In my primordial phase, Which gasses I need to host life on my surface/subsurface/ocean?",
         options: [
-            { text: "Oxygen, Noble Gasses and Nitrogen", correct: false },
+            { text: "Oxygen, and Noble Gasses", correct: false },
             { text: "Methane, Ammonia and Hydrogen Sulfide", correct: true }
         ],
         image: "images/abiogenesis.png"
