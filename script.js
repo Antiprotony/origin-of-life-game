@@ -224,9 +224,9 @@ function showResults() {
     } else if (percentage >= 95) {
         message = `<h2>${percentage}% - You have obtained life, but be careful, it could go extinct.</h2>`;
     } else if (percentage >= 90) {
-        message = `<h2>${percentage}% - Life is forming, but one false step and you could lose it.</h2>`;
+        message = `<h2>${percentage}% - Life is on the verge of forming, but one false step and you could lose it.</h2>`;
     } else if (percentage >= 85) {
-        message = `<h2>${percentage}% - Life is almost formed, but the planet is not yet stable.</h2>`;
+        message = `<h2>${percentage}% - Life is nearly formed, but the planet is not yet stable.</h2>`;
     } else if (percentage >= 80) {
         message = `<h2>${percentage}% - You have essential ingredients, something like a cell, but more is needed for life.</h2>`;
     } else if (percentage >= 75) {
