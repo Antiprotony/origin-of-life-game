@@ -77,7 +77,7 @@ const questions = [
     {
         question: "What can help me to keep me warm",
         options: [
-            { text: "Presence of deserts", correct: false },
+            { text: "Presence of deeply shadowed cavities", correct: false },
             { text: "Albedo effect", correct: true }
         ],
         image: "images/rna.png"
