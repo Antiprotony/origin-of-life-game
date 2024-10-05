@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+     <meta charset="UTF-8">
     <title>ORIGIN OF LIFE - The Game</title>
     <link rel="stylesheet" href="styles.css">
     <!-- Include the font if needed -->
@@ -13,11 +13,13 @@
     <div class="game-container">
         <h1>ORIGIN OF LIFE</h1>
         
-        <!-- Testo "INSERT COIN TO PLAY" -->
-        <p class="insert-coin-text">INSERT COIN TO PLAY</p>
+        <!-- Inserisci l'immagine della moneta con testo -->
+        <div id="insert-coin">
+            <img src="images/coin.png" alt="Insert Coin" class="coin-image">
+            <p class="insert-coin-text">INSERT COIN TO PLAY</p>
+        </div>
         
-        <!-- Immagine della moneta lampeggiante -->
-        <img src="images/coin.png" alt="Insert Coin" class="coin-image blinking" id="start-image" onclick="startGame()">
+        <button class="button" id="start-button" onclick="startGame()">Start Game</button>
         
         <!-- Barra di progressione -->
         <div id="progress-container" style="display: none;">
