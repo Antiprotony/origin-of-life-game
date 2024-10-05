@@ -12,21 +12,36 @@
 <body>
     <div class="game-container">
         <h1>ORIGIN OF LIFE</h1>
+        
+        <!-- Inserisci l'immagine della moneta con testo -->
+        <div id="insert-coin">
+            <img src="images/coin.png" alt="Insert Coin" class="coin-image">
+            <p class="insert-coin-text">INSERT COIN TO PLAY</p>
+        </div>
+        
         <button class="button" id="start-button" onclick="startGame()">Start Game</button>
+        
+        <!-- Barra di progressione -->
+        <div id="progress-container" style="display: none;">
+            <div id="progress-bar"></div>
+        </div>
+        
         <div id="game">
             <!-- Game content will be injected here -->
         </div>
-</div>
-    <!-- Aggiungi questo codice -->
+    </div>
+    
+    <!-- Footer -->
     <div class="footer">
         <p>Game created by Luca Tonietti</p>
-
     </div>
+    
     <!-- Audio Element -->
     <audio id="background-music" loop>
         <source src="audio/background-music.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
+    
     <script src="script.js"></script>
 </body>
 </html>
