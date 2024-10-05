@@ -151,7 +151,7 @@ function startGame() {
     // Avvia la musica di sottofondo
     backgroundMusic.play();
 
-    // Nascondi l'immagine "Insert Coin to Play"
+    // Nascondi l'immagine "Insert Coin to Play" e il testo
     startImage.style.display = 'none';
     const insertCoinText = document.querySelector('.insert-coin-text');
     if (insertCoinText) {
@@ -274,7 +274,7 @@ function showResults() {
     } else if (percentage >= 70) {
         message = `<h2>${percentage}% - You have water, but the atmosphere is unstable. Maybe was the magnetic field?</h2>`;
     } else if (percentage >= 65) {
-        message = `<h2>${percentage}% - Basic elements are present, same for an atmosphere and an oceans, but conditions are harsh.</h2>`;
+        message = `<h2>${percentage}% - Basic elements are present, same for an atmosphere and oceans, but conditions are harsh.</h2>`;
     } else if (percentage >= 60) {
         message = `<h2>${percentage}% - Volcanic activity dominates; life is unlikely.</h2>`;
     } else if (percentage >= 55) {
@@ -291,72 +291,4 @@ function showResults() {
         message = `<h2>${percentage}% - The planet lacks essential chemicals for life.</h2>`;
     } else if (percentage >= 25) {
         message = `<h2>${percentage}% - The planet is barren and lifeless.</h2>`;
-    } else if (percentage >= 20) {
-        message = `<h2>${percentage}% - You have a planet, but it's missing almost everything.</h2>`;
-    } else if (percentage >= 15) {
-        message = `<h2>${percentage}% - Just a rocky mass floating in space.</h2>`;
-    } else if (percentage >= 10) {
-        message = `<h2>${percentage}% - A lifeless rock with no atmosphere or water.</h2>`;
-    } else if (percentage >= 5) {
-        message = `<h2>${percentage}% - A failed attempt at planet formation.</h2>`;
-    } else {
-        message = `<h2>${percentage}% - I'm sorry, but maybe you need to start over.</h2>`;
     }
-
-    gameDiv.innerHTML = `
-        ${message}
-        <p>Final Score: ${score} out of ${maxScore}</p>
-        <button class="button" onclick="restartGame()">Play Again</button>
-    `;
-
-    // Nascondi la barra di progressione
-    const progressContainer = document.getElementById('progress-container');
-    if (progressContainer) {
-        progressContainer.style.display = 'none';
-    }
-
-    // Ferma la musica di sottofondo
-    backgroundMusic.pause();
-    backgroundMusic.currentTime = 0;
-}
-
-// 11. Function to Restart the Game
-function restartGame() {
-    score = 0;
-    currentQuestion = 0;
-
-    // Mostra l'immagine "Insert Coin to Play" e il testo
-    const startImage = document.getElementById('start-image');
-    if (startImage) {
-        startImage.style.display = 'block';
-    }
-
-    const insertCoinText = document.querySelector('.insert-coin-text');
-    if (insertCoinText) {
-        insertCoinText.style.display = 'block';
-    }
-
-    // Reimposta la barra di progressione
-    const progressBar = document.getElementById('progress-bar');
-    if (progressBar) {
-        progressBar.style.width = '0%';
-    }
-
-    // Nascondi il contenitore della barra di progressione
-    const progressContainer = document.getElementById('progress-container');
-    if (progressContainer) {
-        progressContainer.style.display = 'none';
-    }
-
-    // Pulisci il contenuto del gioco
-    const gameDiv = document.getElementById('game');
-    if (gameDiv) {
-        gameDiv.innerHTML = '';
-    }
-
-    // Ferma e resetta la musica di sottofondo
-    if (backgroundMusic) {
-        backgroundMusic.pause();
-        backgroundMusic.currentTime = 0;
-    }
-}
