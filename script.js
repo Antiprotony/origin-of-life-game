@@ -142,18 +142,20 @@ const maxScore = questions.length * 10; // Assuming 10 points per correct answer
 
 // 4. Get References to HTML Elements
 const backgroundMusic = document.getElementById('background-music');
-const startImage = document.getElementById('start-image');
+const startButton = document.getElementById('start-button');
 
 // 5. Function to Start the Game
 function startGame() {
     // Avvia la musica di sottofondo
     backgroundMusic.play();
 
-    // Nascondi l'immagine della moneta e il testo "INSERT COIN TO PLAY"
-    startImage.style.display = 'none';
-    const insertCoinText = document.querySelector('.insert-coin-text');
-    if (insertCoinText) {
-        insertCoinText.style.display = 'none';
+    // Nascondi il pulsante Start Game
+    startButton.style.display = 'none';
+
+    // Nascondi l'immagine "Insert Coin to Play"
+    const insertCoin = document.getElementById('insert-coin');
+    if (insertCoin) {
+        insertCoin.style.display = 'none';
     }
 
     // Mostra la barra di progressione
@@ -204,7 +206,7 @@ function selectOption(index) {
     const questionObj = questions[currentQuestion];
     const option = questionObj.options[index];
 
-    // Controlla se la risposta è corretta
+    // Check if the answer is correct
     let feedback = '';
     if (option.correct) {
         score += 10;
@@ -213,11 +215,11 @@ function selectOption(index) {
         feedback = `<p class="feedback incorrect">Incorrect. Score: ${score}</p>`;
     }
 
-    // Mostra il feedback
+    // Display feedback
     const gameDiv = document.getElementById('game');
     gameDiv.innerHTML += feedback;
 
-    // Disabilita i pulsanti per prevenire multiple risposte
+    // Disabilita i pulsanti per evitare risposte multiple
     const buttons = document.querySelectorAll('#game .button');
     buttons.forEach(button => button.disabled = true);
 
@@ -230,14 +232,30 @@ function selectOption(index) {
         } else {
             showResults();
         }
-    }, 2000); // Attende 2 secondi
+    }, 2000); // Attendi 2 secondi
 }
 
-// 8. Function to Show the Final Result
+// 8. Function to Update the Progress Bar
+function updateProgressBar() {
+    const progressBar = document.getElementById('progress-bar');
+    const totalQuestions = questions.length;
+    const progressPercentage = ((currentQuestion) / totalQuestions) * 100;
+    progressBar.style.width = progressPercentage + '%';
+}
+
+// 9. Function to Update the Score Display
+function updateScoreDisplay() {
+    const scoreDisplay = document.getElementById('score-display');
+    if (scoreDisplay) {
+        scoreDisplay.textContent = 'Score: ' + score;
+    }
+}
+
+// 10. Function to Show the Final Result
 function showResults() {
     const gameDiv = document.getElementById('game');
     let message = '';
-    let percentage = Math.round((score / maxScore) * 100);
+    let percentage = (score / maxScore) * 100;
 
     if (percentage === 100) {
         message = `<h2>${percentage}% - You have achieved stable life, and your planet will flourish!</h2>`;
@@ -294,44 +312,42 @@ function showResults() {
     if (progressContainer) {
         progressContainer.style.display = 'none';
     }
-
-    // Ferma la musica di sottofondo
-    backgroundMusic.pause();
-    backgroundMusic.currentTime = 0;
 }
 
-// 9. Function to Restart the Game
+// 11. Function to Restart the Game
 function restartGame() {
     score = 0;
     currentQuestion = 0;
 
-    // Mostra l'immagine della moneta e il testo "INSERT COIN TO PLAY"
-    const startImage = document.getElementById('start-image');
-    if (startImage) {
-        startImage.style.display = 'block';
-    }
+    // Mostra il pulsante Start Game
+    startButton.style.display = 'inline-block';
 
-    const insertCoinText = document.querySelector('.insert-coin-text');
-    if (insertCoinText) {
-        insertCoinText.style.display = 'block';
-    }
-
-    // Nascondi la barra di progressione e resettala
+    // Reimposta la barra di progressione
     const progressBar = document.getElementById('progress-bar');
     if (progressBar) {
         progressBar.style.width = '0%';
     }
 
+    // Nascondi il contenitore della barra di progressione
     const progressContainer = document.getElementById('progress-container');
     if (progressContainer) {
         progressContainer.style.display = 'none';
     }
 
-    // Pulisci il contenuto del gioco
-    document.getElementById('game').innerHTML = '';
+    // Mostra l'immagine "Insert Coin to Play"
+    const insertCoin = document.getElementById('insert-coin');
+    if (insertCoin) {
+        insertCoin.style.display = 'block';
+    }
 
-    // Ferma la musica di sottofondo se è in riproduzione
-    if (!backgroundMusic.paused) {
+    // Pulisci il contenuto del gioco
+    const gameDiv = document.getElementById('game');
+    if (gameDiv) {
+        gameDiv.innerHTML = '';
+    }
+
+    // Ferma e resetta la musica di sottofondo
+    if (backgroundMusic) {
         backgroundMusic.pause();
         backgroundMusic.currentTime = 0;
     }
