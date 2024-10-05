@@ -10,15 +10,12 @@ html, body {
     padding: 0;
 }
 
-/* Stile generale del body */
 body {
     background-color: #000;
     color: #00ff00;
     font-family: 'Press Start 2P', cursive;
     text-align: center;
     padding: 10px;
-    position: relative;
-    overflow: hidden;
     background-image: repeating-linear-gradient(
         to bottom,
         rgba(255, 255, 255, 0.02),
@@ -26,179 +23,42 @@ body {
         transparent 1px,
         transparent 2px
     );
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
 }
 
-/* Effetto Starfield Animato */
-@keyframes starfield {
-    from { background-position: 0 0; }
-    to { background-position: -10000px 5000px; }
-}
-
-body::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 200%;
-    height: 200%;
-    background: url('images/starfield.png') repeat;
-    opacity: 0.05;
-    animation: starfield 200s linear infinite;
-    pointer-events: none;
-    z-index: -1;
-}
-
-/* Contenitore principale del gioco */
 .game-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    flex: 1;
-    width: 100%;
+    min-height: 100%;
     max-width: 800px;
     margin: 0 auto;
     padding: 20px;
     border: 4px solid #00ff00;
-    background: rgba(0, 0, 0, 0.7);
-    border-radius: 15px;
-    position: relative;
 }
 
-/* Titolo */
 h1 {
     font-size: 32px;
     margin-bottom: 30px;
+    text-shadow: 2px 2px #FFFF00; /* Ombra gialla */
     color: #ff00ff;
-    border: 4px solid #FFFF00;
+    border: 4px solid #FFFF00; /* Bordo giallo corretto */
     padding: 10px;
     display: inline-block;
-    background: rgba(0, 0, 0, 0.5);
-    border-radius: 10px;
-    width: 100%;
-    max-width: 600px;
 }
 
-/* Testo "INSERT COIN TO PLAY" */
-.insert-coin-text {
-    font-size: 20px;
-    color: #ff00ff;
-    margin-bottom: 10px;
-    width: 100%;
-    max-width: 600px;
-}
-
-/* Immagine della Moneta Lampeggiante */
-.coin-image {
-    max-width: 150px;
-    width: 100%;
-    height: auto;
-    margin-bottom: 30px;
-    border: 4px solid #00ff00;
-    cursor: pointer;
-    animation: blink 1.5s infinite, pulse 2s infinite;
-    transition: transform 0.3s;
-    border-radius: 50%;
-}
-
-/* Hover sull'immagine della moneta */
-.coin-image:hover {
-    transform: scale(1.1);
-}
-
-/* Effetto Lampeggiante */
-@keyframes blink {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.7; }
-}
-
-/* Effetto Pulsazione */
-@keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.05); }
-    100% { transform: scale(1); }
-}
-
-/* Barra di progressione */
-#progress-container {
-    width: 100%;
-    background-color: #555;
-    margin: 20px 0;
-    height: 20px;
-    border: 2px solid #00ff00;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: inset 0 0 5px #000;
-    display: none; /* Nascondi inizialmente */
-}
-
-#progress-bar {
-    width: 0%;
-    height: 100%;
-    background: linear-gradient(90deg, #00ff00, #ff00ff);
-    transition: width 0.5s ease;
-    box-shadow: inset 0 0 5px #000;
-}
-
-/* Stile per le domande */
 #game p {
     font-size: 20px;
     margin-bottom: 30px;
     line-height: 1.5;
-    color: #00ff00;
-    animation: fadeIn 1s ease-in-out;
-    width: 100%;
-    max-width: 600px;
+    text-shadow: 1px 1px #ff00ff;
 }
 
-/* Stile per le immagini all'interno del gioco */
-#game img {
-    max-width: 100%;
-    height: auto;
-    margin-bottom: 30px;
-    border: 4px solid #00ff00;
-    border-radius: 10px;
-}
-
-/* Stile per feedback */
-.feedback {
-    font-size: 20px;
-    margin-top: 20px;
-    color: #00ff00;
-    animation: fadeIn 0.5s ease-in-out;
-}
-
-.feedback.correct {
-    color: #00ff00;
-}
-
-.feedback.incorrect {
-    color: #ff0000;
-}
-
-/* Stile per il messaggio finale */
-#game h2 {
-    font-size: 28px;
-    margin-bottom: 20px;
-    color: #ff00ff;
-    border: 4px solid #FFFF00;
-    padding: 10px;
-    display: inline-block;
-    background: rgba(0, 0, 0, 0.5);
-    border-radius: 10px;
-    animation: fadeIn 1s ease-in-out;
-    width: 100%;
-    max-width: 600px;
-}
-
-/* Pulsanti */
+/* Stile per il pulsante Start Game e altri pulsanti */
 .button {
     background-color: #000;
     color: #00ff00;
-    padding: 15px 10px;
+    padding: 20px 10px;
     margin: 15px auto;
     border: 2px solid #00ff00;
     cursor: pointer;
@@ -208,31 +68,36 @@ h1 {
     max-width: 400px;
     text-decoration: none;
     font-family: 'Press Start 2P', cursive;
-    transition: 
-        background-color 0.3s, 
-        transform 0.2s;
+    box-shadow: 2px 2px #ff00ff;
+    transition: background-color 0.3s, transform 0.1s;
     white-space: normal; /* Consenti al testo di andare a capo */
     word-wrap: break-word; /* Consenti la divisione delle parole se necessario */
     overflow-wrap: break-word; /* Gestisci parole lunghe */
-    border-radius: 5px;
 }
 
-/* Hover sui pulsanti */
 .button:hover {
     background-color: #00ff00;
     color: #000;
-    transform: translate(-2px, -2px) scale(1.05);
+    transform: translate(-2px, -2px);
 }
 
-/* Rimuovi l'outline dai pulsanti quando focalizzati */
-.button:focus {
-    outline: none;
+/* Stili per le immagini all'interno del gioco */
+#game img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 30px;
+    border: 4px solid #00ff00;
+    box-shadow: 2px 2px #ff00ff;
 }
 
-/* Animazione Fade-In per le domande e feedback */
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-10px); }
-    to { opacity: 1; transform: translateY(0); }
+/* Stile per l'immagine della schermata iniziale */
+.schermata-iniziale {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 30px;
+    border: 4px solid #00ff00;
+    box-shadow: 2px 2px #ff00ff;
+    position: relative;
 }
 
 /* Effetto scanline per l'immagine della schermata iniziale */
@@ -253,15 +118,85 @@ h1 {
     pointer-events: none;
 }
 
-/* Stile del footer */
-.footer {
-    background-color: rgba(0, 0, 0, 0.7);
-    padding: 10px 0;
-    color: #00ff00;
-    border-top: 2px solid #00ff00;
-    width: 100%;
+/* Stili per l'immagine della moneta */
+#insert-coin {
     text-align: center;
-    box-sizing: border-box;
+    margin-bottom: 20px;
+}
+
+.coin-image {
+    max-width: 150px;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.insert-coin-text {
+    font-size: 18px;
+    color: #ff00ff;
+    text-shadow: 1px 1px #000000;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%, 50%, 100% {
+        opacity: 1;
+    }
+    25%, 75% {
+        opacity: 0;
+    }
+}
+
+/* Barra di progressione */
+#progress-container {
+    width: 100%;
+    background-color: #555;
+    margin: 20px 0;
+    height: 20px;
+    border: 2px solid #00ff00;
+    display: none; /* Nascondi inizialmente */
+}
+
+#progress-bar {
+    width: 0%;
+    height: 100%;
+    background-color: #00ff00;
+}
+
+/* Stile per il punteggio */
+#score-display {
+    font-size: 18px;
+    color: #00ff00;
+    text-shadow: 1px 1px #000000;
+    margin-top: 10px;
+}
+
+.feedback {
+    font-size: 20px;
+    margin-top: 20px;
+    text-shadow: 1px 1px #ff00ff;
+}
+
+.feedback.correct {
+    color: #00ff00;
+}
+
+.feedback.incorrect {
+    color: #ff0000;
+}
+
+#game h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px #FFFF00; /* Ombra gialla */
+    color: #ff00ff;
+    border: 4px solid #FFFF00; /* Bordo giallo */
+    padding: 10px;
+    display: inline-block;
+}
+
+/* Rimuovi l'outline dai pulsanti quando focalizzati */
+.button:focus {
+    outline: none;
 }
 
 /* Media query per schermi con larghezza massima di 600px */
@@ -315,11 +250,13 @@ h1 {
     /* Modifiche per l'immagine della moneta su dispositivi mobili */
     .coin-image {
         max-width: 100px;
-        margin-bottom: 20px;
-        border-width: 2px;
     }
 
     .insert-coin-text {
+        font-size: 16px;
+    }
+
+    #score-display {
         font-size: 16px;
     }
 }
