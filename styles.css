@@ -37,6 +37,26 @@ body {
     to { background-position: -10000px 5000px; }
 }
 
+/* Definizione dell'animazione flicker */
+@keyframes flicker {
+    0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+        opacity: 1;
+    }
+    20%, 22%, 24%, 55% {
+        opacity: 0.4;
+    }
+}
+
+/* Definizione dell'animazione blink */
+@keyframes blink {
+    0%, 50%, 100% {
+        opacity: 1;
+    }
+    25%, 75% {
+        opacity: 0;
+    }
+}
+
 /* Applicazione dello sfondo starfield animato al body */
 body::before {
     content: '';
@@ -83,7 +103,7 @@ body::after {
     padding: 20px;
     border: 4px solid #00ff00;
     background: rgba(0, 0, 0, 0.7);
-    /* border-radius: 15px; */
+    /* border-radius: 15px; */ /* Arrotondamento rimosso */
     position: relative;
 }
 
@@ -105,16 +125,6 @@ h1 {
     color: #ff00ff;
     text-shadow: 1px 1px #000000;
     animation: blink 1s infinite;
-}
-
-/* Definizione dell'animazione blink */
-@keyframes blink {
-    0%, 50%, 100% {
-        opacity: 1;
-    }
-    25%, 75% {
-        opacity: 0;
-    }
 }
 
 /* Bordature tratteggiate per il messaggio finale */
@@ -151,9 +161,7 @@ h1 {
     white-space: normal; /* Consenti al testo di andare a capo */
     word-wrap: break-word; /* Consenti la divisione delle parole se necessario */
     overflow-wrap: break-word; /* Gestisci parole lunghe */
-    /* Aggiunta di ombre interne ed esterne */
-    box-shadow: 2px 2px 5px rgba(255, 0, 255, 0.5), inset 0px 0px 3px rgba(0, 255, 0, 0.5);
-    animation: flicker 3.5s infinite;
+    animation: flicker 3.5s infinite; /* Aggiunta dell'animazione flicker */
 }
 
 .button:hover {
@@ -212,10 +220,9 @@ h1 {
     max-width: 150px;
     height: auto;
     margin-bottom: 10px;
-    animation: blink 2s infinite, pulse 3s infinite; /* Applicazione delle animazioni blink e pulse */
-    /* Aggiunta di bordi pixelati */
-    /* border: 2px solid #00ff00;
-    /* image-rendering: pixelated;
+    animation: blink 2s infinite; /* Mantieni solo l'animazione blink */
+    /* border: 2px solid #00ff00; */ /* Bordo rimosso */
+    /* image-rendering: pixelated; */ /* Rimuovi se non desiderato */
 }
 
 /* Animazione lampeggiante per la moneta */
@@ -345,17 +352,7 @@ h1 {
 
 /* --- Aggiunta dell'Effetto Flicker --- */
 
-/* Definizione dell'animazione flicker */
-@keyframes flicker {
-    0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
-        opacity: 1;
-    }
-    20%, 22%, 24%, 55% {
-        opacity: 0.4;
-    }
-}
-
 /* Applicazione dell'animazione flicker al titolo */
 h1 {
-    animation: flicker 3s infinite;
+    animation: flicker 5.5s infinite; /* Mantieni questa dichiarazione */
 }
