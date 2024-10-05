@@ -142,20 +142,20 @@ const maxScore = questions.length * 10; // Assuming 10 points per correct answer
 
 // 4. Get References to HTML Elements
 const backgroundMusic = document.getElementById('background-music');
-const startButton = document.getElementById('start-button');
+const startImage = document.getElementById('start-image');
+const correctSound = document.getElementById('correct-sound');
+const incorrectSound = document.getElementById('incorrect-sound');
 
 // 5. Function to Start the Game
 function startGame() {
     // Avvia la musica di sottofondo
     backgroundMusic.play();
 
-    // Nascondi il pulsante Start Game
-    startButton.style.display = 'none';
-
     // Nascondi l'immagine "Insert Coin to Play"
-    const insertCoin = document.getElementById('insert-coin');
-    if (insertCoin) {
-        insertCoin.style.display = 'none';
+    startImage.style.display = 'none';
+    const insertCoinText = document.querySelector('.insert-coin-text');
+    if (insertCoinText) {
+        insertCoinText.style.display = 'none';
     }
 
     // Mostra la barra di progressione
@@ -211,8 +211,10 @@ function selectOption(index) {
     if (option.correct) {
         score += 10;
         feedback = `<p class="feedback correct">Correct! Score: ${score}</p>`;
+        if (correctSound) correctSound.play();
     } else {
         feedback = `<p class="feedback incorrect">Incorrect. Score: ${score}</p>`;
+        if (incorrectSound) incorrectSound.play();
     }
 
     // Display feedback
@@ -255,7 +257,7 @@ function updateScoreDisplay() {
 function showResults() {
     const gameDiv = document.getElementById('game');
     let message = '';
-    let percentage = (score / maxScore) * 100;
+    let percentage = Math.round((score / maxScore) * 100);
 
     if (percentage === 100) {
         message = `<h2>${percentage}% - You have achieved stable life, and your planet will flourish!</h2>`;
@@ -312,6 +314,10 @@ function showResults() {
     if (progressContainer) {
         progressContainer.style.display = 'none';
     }
+
+    // Ferma la musica di sottofondo
+    backgroundMusic.pause();
+    backgroundMusic.currentTime = 0;
 }
 
 // 11. Function to Restart the Game
@@ -319,8 +325,16 @@ function restartGame() {
     score = 0;
     currentQuestion = 0;
 
-    // Mostra il pulsante Start Game
-    startButton.style.display = 'inline-block';
+    // Mostra l'immagine "Insert Coin to Play" e il testo
+    const startImage = document.getElementById('start-image');
+    if (startImage) {
+        startImage.style.display = 'block';
+    }
+
+    const insertCoinText = document.querySelector('.insert-coin-text');
+    if (insertCoinText) {
+        insertCoinText.style.display = 'block';
+    }
 
     // Reimposta la barra di progressione
     const progressBar = document.getElementById('progress-bar');
@@ -332,12 +346,6 @@ function restartGame() {
     const progressContainer = document.getElementById('progress-container');
     if (progressContainer) {
         progressContainer.style.display = 'none';
-    }
-
-    // Mostra l'immagine "Insert Coin to Play"
-    const insertCoin = document.getElementById('insert-coin');
-    if (insertCoin) {
-        insertCoin.style.display = 'block';
     }
 
     // Pulisci il contenuto del gioco
