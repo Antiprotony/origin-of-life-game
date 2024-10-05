@@ -2,135 +2,7 @@
 
 // 1. Game Questions
 const questions = [
-    {
-        question: "You are a young planet forming in the habitable zone. What do you do first?",
-        options: [
-            { text: "Create an ocean", correct: false },
-            { text: "Create an atmosphere", correct: true }
-        ],
-        image: "images/planet.png"
-    },
-    {
-        question: "You have created an atmosphere and than an ocean. Which chemical elements are mostly required on lands and waters?",
-        options: [
-            { text: "Ca, K, Sc, As, Au", correct: false },
-            { text: "C, N, O, P, S, H", correct: true }
-        ],
-        image: "images/elements.png"
-    },
-    {
-        question: "Now the source of energy! Which is the main energy source that I need in order to originate life?",
-        options: [
-            { text: "Geothermal gradient", correct: true },
-            { text: "Solar energy", correct: false }
-        ],
-        image: "images/energy.png"
-    },
-    {
-        question: "Now you have a stable atmosphere, geothermal gradients and so on. What do you need next?",
-        options: [
-            { text: "Solid rocks", correct: false },
-            { text: "Porous rocks", correct: true }
-        ],
-        image: "images/molecole.png"
-    },
-    {
-        question: "The main ingredients are ready! Which conditions are the best for the formation of prebiotic molecules?",
-        options: [
-            { text: "Warm water, moderate UV radiation", correct: true },
-            { text: "Cold water, high UV radiation", correct: false }
-        ],
-        image: "images/fumarole.png"
-    },
-    {
-        question: "The conditions are perfect (maybe)! Now we need the first molecule able to replicate with a degree of information. Which is..",
-        options: [
-            { text: "Protein", correct: false },
-            { text: "DNA/RNA", correct: true }
-        ],
-        image: "images/dna.png"
-    },
-    {
-        question: "Molecules, energy, warm waters. The primordial soup! Now macromoleculs are inside pores of rocks, we need something more biotic to confine them",
-        options: [
-            { text: "We produce vitamins", correct: false },
-            { text: "We produce lipids", correct: true }
-        ],
-        image: "images/primordial_soup.png"
-    },
-    {
-        question: "I need something more..",
-        options: [
-            { text: "U, Th, Xe, Ar, Sb", correct: false },
-            { text: "Fe, Mo, Cu, Ni, W", correct: true }
-        ],
-        image: "images/miller_urey.png"
-    },
-    {
-        question: "I forgot something fundamental!",
-        options: [
-            { text: "Strong magnetic field", correct: true },
-            { text: "Weak magnetic field", correct: false }
-        ],
-        image: "images/nucleotides.png"
-    },
-    {
-        question: "What can help me to keep me warm",
-        options: [
-            { text: "Presence of deeply shadowed cavities", correct: false },
-            { text: "Albedo effect", correct: true }
-        ],
-        image: "images/rna.png"
-    },
-    {
-        question: "On the bottom of my oceans something is mixing chemicals with the water! What is it?",
-        options: [
-            { text: "A big magmatic cauldron!", correct: false },
-            { text: "Oh! An Hydrothermal Vent!", correct: true }
-        ],
-        image: "images/hydrothermal_vent.png"
-    },
-    {
-        question: "In my primordial phase, Which gasses I need to host life?",
-        options: [
-            { text: "Oxygen, and Noble Gasses", correct: false },
-            { text: "Methane, Ammonia and Hydrogen Sulfide", correct: true }
-        ],
-        image: "images/abiogenesis.png"
-    },
-    {
-        question: "I think that I'm almost ready for life. Which life can I choose first?",
-        options: [
-            { text: "Eukaryotes", correct: false },
-            { text: "Prokaryotes", correct: true }
-        ],
-        image: "images/rna_world.png"
-    },
-    {
-        question: "Which type of chemical bond I required for the formation of complex organic molecules?",
-        options: [
-            { text: "Covalent bond", correct: true },
-            { text: "Ionic bond", correct: false }
-        ],
-        image: "images/covalent_bond.png"
-    },
-    {
-        question: "Some of you told me that I really need lipids. But Why?!",
-        options: [
-            { text: "They are able to produce essentials molecules for living organisms", correct: false },
-            { text: "They model early cell membranes", correct: true }
-        ],
-        image: "images/liposome.png"
-    },
-    {
-        question: "I really would like to have life on my surface! But sometime I miss of chemicals. Maybe my celestial friends can help me. But, Who?",
-        options: [
-            { text: "Comets and asteroids", correct: true },
-            { text: "Moons and planets", correct: false }
-        ],
-        image: "images/panspermia.png"
-    }
-    // You can add more questions here if you like
+    // ... (le tue domande esistenti)
 ];
 
 // 2. Variables to Keep Track of Game State
@@ -151,7 +23,7 @@ function startGame() {
     // Avvia la musica di sottofondo
     backgroundMusic.play();
 
-    // Nascondi l'immagine "Insert Coin to Play" e il testo
+    // Nascondi l'immagine "Insert Coin to Play"
     startImage.style.display = 'none';
     const insertCoinText = document.querySelector('.insert-coin-text');
     if (insertCoinText) {
@@ -274,7 +146,7 @@ function showResults() {
     } else if (percentage >= 70) {
         message = `<h2>${percentage}% - You have water, but the atmosphere is unstable. Maybe was the magnetic field?</h2>`;
     } else if (percentage >= 65) {
-        message = `<h2>${percentage}% - Basic elements are present, same for an atmosphere and oceans, but conditions are harsh.</h2>`;
+        message = `<h2>${percentage}% - Basic elements are present, same for an atmosphere and an oceans, but conditions are harsh.</h2>`;
     } else if (percentage >= 60) {
         message = `<h2>${percentage}% - Volcanic activity dominates; life is unlikely.</h2>`;
     } else if (percentage >= 55) {
@@ -291,4 +163,72 @@ function showResults() {
         message = `<h2>${percentage}% - The planet lacks essential chemicals for life.</h2>`;
     } else if (percentage >= 25) {
         message = `<h2>${percentage}% - The planet is barren and lifeless.</h2>`;
+    } else if (percentage >= 20) {
+        message = `<h2>${percentage}% - You have a planet, but it's missing almost everything.</h2>`;
+    } else if (percentage >= 15) {
+        message = `<h2>${percentage}% - Just a rocky mass floating in space.</h2>`;
+    } else if (percentage >= 10) {
+        message = `<h2>${percentage}% - A lifeless rock with no atmosphere or water.</h2>`;
+    } else if (percentage >= 5) {
+        message = `<h2>${percentage}% - A failed attempt at planet formation.</h2>`;
+    } else {
+        message = `<h2>${percentage}% - I'm sorry, but maybe you need to start over.</h2>`;
     }
+
+    gameDiv.innerHTML = `
+        ${message}
+        <p>Final Score: ${score} out of ${maxScore}</p>
+        <button class="button" onclick="restartGame()">Play Again</button>
+    `;
+
+    // Nascondi la barra di progressione
+    const progressContainer = document.getElementById('progress-container');
+    if (progressContainer) {
+        progressContainer.style.display = 'none';
+    }
+
+    // Ferma la musica di sottofondo
+    backgroundMusic.pause();
+    backgroundMusic.currentTime = 0;
+}
+
+// 11. Function to Restart the Game
+function restartGame() {
+    score = 0;
+    currentQuestion = 0;
+
+    // Mostra l'immagine "Insert Coin to Play" e il testo
+    const startImage = document.getElementById('start-image');
+    if (startImage) {
+        startImage.style.display = 'block';
+    }
+
+    const insertCoinText = document.querySelector('.insert-coin-text');
+    if (insertCoinText) {
+        insertCoinText.style.display = 'block';
+    }
+
+    // Reimposta la barra di progressione
+    const progressBar = document.getElementById('progress-bar');
+    if (progressBar) {
+        progressBar.style.width = '0%';
+    }
+
+    // Nascondi il contenitore della barra di progressione
+    const progressContainer = document.getElementById('progress-container');
+    if (progressContainer) {
+        progressContainer.style.display = 'none';
+    }
+
+    // Pulisci il contenuto del gioco
+    const gameDiv = document.getElementById('game');
+    if (gameDiv) {
+        gameDiv.innerHTML = '';
+    }
+
+    // Ferma e resetta la musica di sottofondo
+    if (backgroundMusic) {
+        backgroundMusic.pause();
+        backgroundMusic.currentTime = 0;
+    }
+}
