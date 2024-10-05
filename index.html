@@ -1,33 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-     <meta charset="UTF-8">
+    <meta charset="UTF-8">
     <title>ORIGIN OF LIFE - The Game</title>
     <link rel="stylesheet" href="styles.css">
-    <!-- Include the font if needed -->
+    <!-- Include the font -->
     <link href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap" rel="stylesheet">
-    <!-- Aggiungi questo meta tag per ottimizzazione mobile -->
+    <!-- Meta tag viewport per dispositivi mobili -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
     <div class="game-container">
         <h1>ORIGIN OF LIFE</h1>
         
-        <!-- Inserisci l'immagine della moneta con testo -->
-        <div id="insert-coin">
-            <img src="images/coin.png" alt="Insert Coin" class="coin-image">
-            <p class="insert-coin-text">INSERT COIN TO PLAY</p>
-        </div>
+        <!-- Testo "INSERT COIN TO PLAY" -->
+        <p class="insert-coin-text">INSERT COIN TO PLAY</p>
         
-        <button class="button" id="start-button" onclick="startGame()">Start Game</button>
+        <!-- Immagine della moneta lampeggiante come pulsante -->
+        <img src="images/coin.png" alt="Insert Coin" class="coin-image blinking" id="start-image" onclick="startGame()">
         
         <!-- Barra di progressione -->
         <div id="progress-container" style="display: none;">
             <div id="progress-bar"></div>
         </div>
         
+        <!-- Punteggio -->
+        <div id="score-display">Score: 0</div>
+        
         <div id="game">
-            <!-- Game content will be injected here -->
+            <!-- Il contenuto del gioco verrà inserito qui -->
         </div>
     </div>
     
@@ -39,6 +40,16 @@
     <!-- Audio Element -->
     <audio id="background-music" loop>
         <source src="audio/background-music.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    
+    <!-- Audio Elements per feedback -->
+    <audio id="correct-sound">
+        <source src="audio/correct.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    <audio id="incorrect-sound">
+        <source src="audio/incorrect.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
     
