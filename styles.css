@@ -65,7 +65,7 @@ body::before {
     box-shadow: 0 0 20px #00ff00, 0 0 40px #00ff00;
 }
 
-/* Titolo con Effetto Neon */
+/* Titolo */
 h1 {
     font-size: 32px;
     margin-bottom: 30px;
@@ -73,8 +73,7 @@ h1 {
     text-shadow: 
         0 0 5px #ff00ff,
         0 0 10px #ff00ff,
-        0 0 20px #ff00ff,
-        0 0 40px #ff00ff;
+        0 0 20px #ff00ff;
     border: 4px solid #FFFF00;
     padding: 10px;
     display: inline-block;
@@ -98,7 +97,7 @@ h1 {
     height: auto;
     margin-bottom: 30px;
     border: 4px solid #00ff00;
-    box-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff;
+    box-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00;
     cursor: pointer;
     animation: blink 1.5s infinite, pulse 2s infinite;
     transition: transform 0.3s, box-shadow 0.3s;
@@ -107,7 +106,7 @@ h1 {
 
 .coin-image:hover {
     transform: scale(1.1);
-    box-shadow: 0 0 20px #ff00ff, 0 0 40px #ff00ff;
+    box-shadow: 0 0 20px #00ff00, 0 0 40px #00ff00;
 }
 
 /* Effetto Lampeggiante */
@@ -219,7 +218,7 @@ h1 {
     animation: fadeIn 1s ease-in-out;
 }
 
-/* Pulsanti con Effetto Neon */
+/* Pulsanti con Effetto */
 .button {
     background-color: #000;
     color: #00ff00;
