@@ -261,3 +261,26 @@ h1 {
         font-size: 16px;
     }
 }
+
+/* --- Aggiunta dello Sfondo Starfield Retrò --- */
+
+/* Definizione dell'animazione starfield */
+@keyframes starfield {
+    from { background-position: 0 0; }
+    to { background-position: -10000px 5000px; }
+}
+
+/* Applicazione dello sfondo starfield animato al body */
+body::before {
+    content: '';
+    position: fixed; /* Fisso rispetto alla viewport */
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 200%;
+    background: url('images/starfield.png') repeat;
+    opacity: 0.05; /* Regola l'opacità per non sovrastare i contenuti */
+    animation: starfield 200s linear infinite; /* Durata e ripetizione dell'animazione */
+    pointer-events: none; /* Permette di cliccare attraverso lo sfondo */
+    z-index: -1; /* Posiziona lo sfondo dietro agli altri elementi */
+}
