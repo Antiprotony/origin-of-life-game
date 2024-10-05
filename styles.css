@@ -118,6 +118,58 @@ h1 {
     pointer-events: none;
 }
 
+/* Stili per l'immagine della moneta */
+#insert-coin {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.coin-image {
+    max-width: 150px;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.insert-coin-text {
+    font-size: 18px;
+    color: #ff00ff;
+    text-shadow: 1px 1px #000000;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%, 50%, 100% {
+        opacity: 1;
+    }
+    25%, 75% {
+        opacity: 0;
+    }
+}
+
+/* Barra di progressione */
+#progress-container {
+    width: 100%;
+    background-color: #555;
+    margin: 20px 0;
+    height: 20px;
+    border: 2px solid #00ff00;
+    display: none; /* Nascondi inizialmente */
+}
+
+#progress-bar {
+    width: 0%;
+    height: 100%;
+    background-color: #00ff00;
+}
+
+/* Stile per il punteggio */
+#score-display {
+    font-size: 18px;
+    color: #00ff00;
+    text-shadow: 1px 1px #000000;
+    margin-top: 10px;
+}
+
 .feedback {
     font-size: 20px;
     margin-top: 20px;
@@ -182,5 +234,29 @@ h1 {
 
     #game h2 {
         font-size: 22px;
+    }
+
+    /* Modifiche per la barra di progressione su dispositivi mobili */
+    #progress-container {
+        margin: 10px 0;
+        height: 15px;
+        border-width: 1px;
+    }
+
+    #progress-bar {
+        height: 100%;
+    }
+
+    /* Modifiche per l'immagine della moneta su dispositivi mobili */
+    .coin-image {
+        max-width: 100px;
+    }
+
+    .insert-coin-text {
+        font-size: 16px;
+    }
+
+    #score-display {
+        font-size: 16px;
     }
 }
