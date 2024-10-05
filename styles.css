@@ -91,59 +91,35 @@ h1 {
 }
 
 /* Stile per l'immagine della schermata iniziale */
-.schermata-iniziale {
-    max-width: 100%;
+.coin-image {
+    max-width: 150px;
     height: auto;
     margin-bottom: 30px;
     border: 4px solid #00ff00;
     box-shadow: 2px 2px #ff00ff;
-    position: relative;
+    cursor: pointer;
+    animation: blink 1.5s infinite;
+    transition: transform 0.3s;
 }
 
-/* Effetto scanline per l'immagine della schermata iniziale */
-.schermata-iniziale::after {
+/* Rimuovere l'effetto scanline per l'immagine della moneta */
+.coin-image::after {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: repeating-linear-gradient(
-        to bottom,
-        transparent,
-        transparent 3px,
-        rgba(0, 0, 0, 0.2) 3px,
-        rgba(0, 0, 0, 0.2) 4px
-    );
+    background: none;
     pointer-events: none;
 }
 
-/* Stili per l'immagine della moneta */
-#insert-coin {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.coin-image {
-    max-width: 150px;
-    height: auto;
-    margin-bottom: 10px;
-}
-
+/* Testo "INSERT COIN TO PLAY" */
 .insert-coin-text {
-    font-size: 18px;
+    font-size: 20px;
     color: #ff00ff;
     text-shadow: 1px 1px #000000;
-    animation: blink 1s infinite;
-}
-
-@keyframes blink {
-    0%, 50%, 100% {
-        opacity: 1;
-    }
-    25%, 75% {
-        opacity: 0;
-    }
+    margin-bottom: 10px;
 }
 
 /* Barra di progressione */
@@ -170,6 +146,17 @@ h1 {
     margin-top: 10px;
 }
 
+/* Effetto lampeggiante */
+@keyframes blink {
+    0%, 50%, 100% {
+        opacity: 1;
+    }
+    25%, 75% {
+        opacity: 0;
+    }
+}
+
+/* Stili per feedback */
 .feedback {
     font-size: 20px;
     margin-top: 20px;
@@ -222,8 +209,8 @@ h1 {
         border-width: 2px;
     }
 
-    /* Modifiche per l'immagine della schermata iniziale su dispositivi mobili */
-    .schermata-iniziale {
+    /* Modifiche per l'immagine della moneta su dispositivi mobili */
+    .coin-image {
         margin-bottom: 20px;
         border-width: 2px;
     }
@@ -236,27 +223,8 @@ h1 {
         font-size: 22px;
     }
 
-    /* Modifiche per la barra di progressione su dispositivi mobili */
-    #progress-container {
-        margin: 10px 0;
-        height: 15px;
-        border-width: 1px;
-    }
-
-    #progress-bar {
-        height: 100%;
-    }
-
-    /* Modifiche per l'immagine della moneta su dispositivi mobili */
-    .coin-image {
-        max-width: 100px;
-    }
-
+    /* Riduci la dimensione del testo "INSERT COIN TO PLAY" su dispositivi mobili */
     .insert-coin-text {
-        font-size: 16px;
-    }
-
-    #score-display {
         font-size: 16px;
     }
 }
