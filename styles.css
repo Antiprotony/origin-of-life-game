@@ -61,7 +61,7 @@ body::before {
     z-index: 1;
     background: rgba(0, 0, 0, 0.7);
     border-radius: 15px;
-    box-shadow: 0 0 20px #00ff00, 0 0 40px #00ff00;
+    /* Rimosso l'effetto box-shadow neon */
 }
 
 /* Titolo */
@@ -94,7 +94,7 @@ h1 {
     /* Rimosso l'effetto box-shadow neon */
     cursor: pointer;
     animation: blink 1.5s infinite, pulse 2s infinite;
-    transition: transform 0.3s, box-shadow 0.3s;
+    transition: transform 0.3s;
     border-radius: 50%;
 }
 
@@ -213,8 +213,7 @@ h1 {
     /* Rimosso l'effetto box-shadow neon */
     transition: 
         background-color 0.3s, 
-        transform 0.2s, 
-        box-shadow 0.3s;
+        transform 0.2s;
     white-space: normal; /* Consenti al testo di andare a capo */
     word-wrap: break-word; /* Consenti la divisione delle parole se necessario */
     overflow-wrap: break-word; /* Gestisci parole lunghe */
