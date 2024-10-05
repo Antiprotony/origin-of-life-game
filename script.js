@@ -19,7 +19,7 @@ const questions = [
         image: "images/elements.png"
     },
     {
-        question: "Now the source of energy! Which is the main energy source that I need in order to originate life?",
+        question: "Now the source of energy! Which is the main energy source that you need in order to originate life?",
         options: [
             { text: "Geothermal gradient", correct: true },
             { text: "Solar energy", correct: false }
@@ -35,7 +35,7 @@ const questions = [
         image: "images/molecole.png"
     },
     {
-        question: "The main ingredients are ready! Which conditions are the best for the formation of prebiotic molecules?",
+        question: "The main ingredients are ready! Which conditions are probably the best for the formation of prebiotic molecules?",
         options: [
             { text: "Warm water, moderate UV radiation", correct: true },
             { text: "Cold water, high UV radiation", correct: false }
@@ -67,7 +67,7 @@ const questions = [
         image: "images/miller_urey.png"
     },
     {
-        question: "I forgot something fundamental!",
+        question: "I forgot something probably fundamental!",
         options: [
             { text: "Strong magnetic field", correct: true },
             { text: "Weak magnetic field", correct: false }
