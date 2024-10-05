@@ -2,28 +2,156 @@
 
 // 1. Game Questions
 const questions = [
-    // ... (le tue domande esistenti)
+    {
+        question: "You are a young planet forming in the habitable zone. What do you do first?",
+        options: [
+            { text: "Create an ocean", correct: false },
+            { text: "Create an atmosphere", correct: true }
+        ],
+        image: "images/planet.png"
+    },
+    {
+        question: "You have created an atmosphere and then an ocean. Which chemical elements are mostly required on lands and waters?",
+        options: [
+            { text: "Ca, K, Sc, As, Au", correct: false },
+            { text: "C, N, O, P, S, H", correct: true }
+        ],
+        image: "images/elements.png"
+    },
+    {
+        question: "Now the source of energy! Which is the main energy source that I need in order to originate life?",
+        options: [
+            { text: "Geothermal gradient", correct: true },
+            { text: "Solar energy", correct: false }
+        ],
+        image: "images/energy.png"
+    },
+    {
+        question: "Now you have a stable atmosphere, geothermal gradients and so on. What do you need next?",
+        options: [
+            { text: "Solid rocks", correct: false },
+            { text: "Porous rocks", correct: true }
+        ],
+        image: "images/molecole.png"
+    },
+    {
+        question: "The main ingredients are ready! Which conditions are the best for the formation of prebiotic molecules?",
+        options: [
+            { text: "Warm water, moderate UV radiation", correct: true },
+            { text: "Cold water, high UV radiation", correct: false }
+        ],
+        image: "images/fumarole.png"
+    },
+    {
+        question: "The conditions are perfect (maybe)! Now we need the first molecule able to replicate with a degree of information. Which is..",
+        options: [
+            { text: "Protein", correct: false },
+            { text: "DNA/RNA", correct: true }
+        ],
+        image: "images/dna.png"
+    },
+    {
+        question: "Molecules, energy, warm waters. The primordial soup! Now macromolecules are inside pores of rocks, we need something more biotic to confine them",
+        options: [
+            { text: "We produce vitamins", correct: false },
+            { text: "We produce lipids", correct: true }
+        ],
+        image: "images/primordial_soup.png"
+    },
+    {
+        question: "I need something more..",
+        options: [
+            { text: "U, Th, Xe, Ar, Sb", correct: false },
+            { text: "Fe, Mo, Cu, Ni, W", correct: true }
+        ],
+        image: "images/miller_urey.png"
+    },
+    {
+        question: "I forgot something fundamental!",
+        options: [
+            { text: "Strong magnetic field", correct: true },
+            { text: "Weak magnetic field", correct: false }
+        ],
+        image: "images/nucleotides.png"
+    },
+    {
+        question: "What can help me to keep me warm",
+        options: [
+            { text: "Presence of deeply shadowed cavities", correct: false },
+            { text: "Albedo effect", correct: true }
+        ],
+        image: "images/rna.png"
+    },
+    {
+        question: "On the bottom of my oceans something is mixing chemicals with the water! What is it?",
+        options: [
+            { text: "A big magmatic cauldron!", correct: false },
+            { text: "Oh! A Hydrothermal Vent!", correct: true }
+        ],
+        image: "images/hydrothermal_vent.png"
+    },
+    {
+        question: "In my primordial phase, Which gases I need to host life?",
+        options: [
+            { text: "Oxygen, and Noble Gases", correct: false },
+            { text: "Methane, Ammonia and Hydrogen Sulfide", correct: true }
+        ],
+        image: "images/abiogenesis.png"
+    },
+    {
+        question: "I think that I'm almost ready for life. Which life can I choose first?",
+        options: [
+            { text: "Eukaryotes", correct: false },
+            { text: "Prokaryotes", correct: true }
+        ],
+        image: "images/rna_world.png"
+    },
+    {
+        question: "Which type of chemical bond do I require for the formation of complex organic molecules?",
+        options: [
+            { text: "Covalent bond", correct: true },
+            { text: "Ionic bond", correct: false }
+        ],
+        image: "images/covalent_bond.png"
+    },
+    {
+        question: "Some of you told me that I really need lipids. But Why?!",
+        options: [
+            { text: "They are able to produce essential molecules for living organisms", correct: false },
+            { text: "They model early cell membranes", correct: true }
+        ],
+        image: "images/liposome.png"
+    },
+    {
+        question: "I really would like to have life on my surface! But sometimes I miss chemicals. Maybe my celestial friends can help me. But, Who?",
+        options: [
+            { text: "Comets and asteroids", correct: true },
+            { text: "Moons and planets", correct: false }
+        ],
+        image: "images/panspermia.png"
+    }
+    // Puoi aggiungere altre domande qui se lo desideri
 ];
 
-// 2. Variables to Keep Track of Game State
-let score = 0; // Variable to track the score
-let currentQuestion = 0; // Index of the current question
+// 2. Variabili per Tenere Traccia dello Stato del Gioco
+let score = 0; // Variabile per tenere traccia del punteggio
+let currentQuestion = 0; // Indice della domanda corrente
 
-// 3. Calculate the Maximum Score
-const maxScore = questions.length * 10; // Assuming 10 points per correct answer
+// 3. Calcola il Punteggio Massimo
+const maxScore = questions.length * 10; // Supponendo 10 punti per risposta corretta
 
-// 4. Get References to HTML Elements
+// 4. Riferimenti agli Elementi HTML
 const backgroundMusic = document.getElementById('background-music');
 const startImage = document.getElementById('start-image');
 const correctSound = document.getElementById('correct-sound');
 const incorrectSound = document.getElementById('incorrect-sound');
 
-// 5. Function to Start the Game
+// 5. Funzione per Avviare il Gioco
 function startGame() {
     // Avvia la musica di sottofondo
     backgroundMusic.play();
 
-    // Nascondi l'immagine "Insert Coin to Play"
+    // Nascondi l'immagine "Insert Coin to Play" e il testo
     startImage.style.display = 'none';
     const insertCoinText = document.querySelector('.insert-coin-text');
     if (insertCoinText) {
@@ -47,7 +175,7 @@ function startGame() {
     showQuestion();
 }
 
-// 6. Function to Show the Current Question
+// 6. Funzione per Mostrare la Domanda Corrente
 function showQuestion() {
     const gameDiv = document.getElementById('game');
     const questionObj = questions[currentQuestion];
@@ -73,12 +201,12 @@ function showQuestion() {
     updateProgressBar();
 }
 
-// 7. Function to Handle Option Selection
+// 7. Funzione per Gestire la Selezione delle Opzioni
 function selectOption(index) {
     const questionObj = questions[currentQuestion];
     const option = questionObj.options[index];
 
-    // Check if the answer is correct
+    // Controlla se la risposta è corretta
     let feedback = '';
     if (option.correct) {
         score += 10;
@@ -89,11 +217,11 @@ function selectOption(index) {
         if (incorrectSound) incorrectSound.play();
     }
 
-    // Display feedback
+    // Mostra il feedback
     const gameDiv = document.getElementById('game');
     gameDiv.innerHTML += feedback;
 
-    // Disabilita i pulsanti per evitare risposte multiple
+    // Disabilita i pulsanti per prevenire risposte multiple
     const buttons = document.querySelectorAll('#game .button');
     buttons.forEach(button => button.disabled = true);
 
@@ -106,10 +234,10 @@ function selectOption(index) {
         } else {
             showResults();
         }
-    }, 2000); // Attendi 2 secondi
+    }, 2000); // Attende 2 secondi
 }
 
-// 8. Function to Update the Progress Bar
+// 8. Funzione per Aggiornare la Barra di Progressione
 function updateProgressBar() {
     const progressBar = document.getElementById('progress-bar');
     const totalQuestions = questions.length;
@@ -117,7 +245,7 @@ function updateProgressBar() {
     progressBar.style.width = progressPercentage + '%';
 }
 
-// 9. Function to Update the Score Display
+// 9. Funzione per Aggiornare il Punteggio Visualizzato
 function updateScoreDisplay() {
     const scoreDisplay = document.getElementById('score-display');
     if (scoreDisplay) {
@@ -125,7 +253,7 @@ function updateScoreDisplay() {
     }
 }
 
-// 10. Function to Show the Final Result
+// 10. Funzione per Mostrare il Risultato Finale
 function showResults() {
     const gameDiv = document.getElementById('game');
     let message = '';
@@ -192,7 +320,7 @@ function showResults() {
     backgroundMusic.currentTime = 0;
 }
 
-// 11. Function to Restart the Game
+// 11. Funzione per Riavviare il Gioco
 function restartGame() {
     score = 0;
     currentQuestion = 0;
