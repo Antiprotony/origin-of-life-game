@@ -18,110 +18,7 @@ const questions = [
         ],
         image: "images/elements.png"
     },
-    {
-        question: "Now the source of energy! Which is the main energy source that I need in order to originate life?",
-        options: [
-            { text: "Geothermal gradient", correct: true },
-            { text: "Solar energy", correct: false }
-        ],
-        image: "images/energy.png"
-    },
-    {
-        question: "Now you have a stable atmosphere, geothermal gradients and so on. What do you need next?",
-        options: [
-            { text: "Solid rocks", correct: false },
-            { text: "Porous rocks", correct: true }
-        ],
-        image: "images/molecole.png"
-    },
-    {
-        question: "The main ingredients are ready! Which conditions are the best for the formation of prebiotic molecules?",
-        options: [
-            { text: "Warm water, moderate UV radiation", correct: true },
-            { text: "Cold water, high UV radiation", correct: false }
-        ],
-        image: "images/fumarole.png"
-    },
-    {
-        question: "The conditions are perfect (maybe)! Now we need the first molecule able to replicate with a degree of information. Which is..",
-        options: [
-            { text: "Protein", correct: false },
-            { text: "DNA/RNA", correct: true }
-        ],
-        image: "images/dna.png"
-    },
-    {
-        question: "Molecules, energy, warm waters. The primordial soup! Now macromolecules are inside pores of rocks, we need something more biotic to confine them",
-        options: [
-            { text: "We produce vitamins", correct: false },
-            { text: "We produce lipids", correct: true }
-        ],
-        image: "images/primordial_soup.png"
-    },
-    {
-        question: "I need something more..",
-        options: [
-            { text: "U, Th, Xe, Ar, Sb", correct: false },
-            { text: "Fe, Mo, Cu, Ni, W", correct: true }
-        ],
-        image: "images/miller_urey.png"
-    },
-    {
-        question: "I forgot something fundamental!",
-        options: [
-            { text: "Strong magnetic field", correct: true },
-            { text: "Weak magnetic field", correct: false }
-        ],
-        image: "images/nucleotides.png"
-    },
-    {
-        question: "What can help me to keep me warm",
-        options: [
-            { text: "Presence of deeply shadowed cavities", correct: false },
-            { text: "Albedo effect", correct: true }
-        ],
-        image: "images/rna.png"
-    },
-    {
-        question: "On the bottom of my oceans something is mixing chemicals with the water! What is it?",
-        options: [
-            { text: "A big magmatic cauldron!", correct: false },
-            { text: "Oh! A Hydrothermal Vent!", correct: true }
-        ],
-        image: "images/hydrothermal_vent.png"
-    },
-    {
-        question: "In my primordial phase, Which gases I need to host life?",
-        options: [
-            { text: "Oxygen, and Noble Gases", correct: false },
-            { text: "Methane, Ammonia and Hydrogen Sulfide", correct: true }
-        ],
-        image: "images/abiogenesis.png"
-    },
-    {
-        question: "I think that I'm almost ready for life. Which life can I choose first?",
-        options: [
-            { text: "Eukaryotes", correct: false },
-            { text: "Prokaryotes", correct: true }
-        ],
-        image: "images/rna_world.png"
-    },
-    {
-        question: "Which type of chemical bond do I require for the formation of complex organic molecules?",
-        options: [
-            { text: "Covalent bond", correct: true },
-            { text: "Ionic bond", correct: false }
-        ],
-        image: "images/covalent_bond.png"
-    },
-    {
-        question: "Some of you told me that I really need lipids. But Why?!",
-        options: [
-            { text: "They are able to produce essential molecules for living organisms", correct: false },
-            { text: "They model early cell membranes", correct: true }
-        ],
-        image: "images/liposome.png"
-    },
+    // ... (altre domande)
     {
         question: "I really would like to have life on my surface! But sometimes I miss chemicals. Maybe my celestial friends can help me. But, Who?",
         options: [
@@ -167,9 +64,6 @@ function startGame() {
     // Reimposta il punteggio e la domanda corrente
     score = 0;
     currentQuestion = 0;
-
-    // Aggiorna il punteggio visualizzato
-    updateScoreDisplay();
 
     // Mostra la prima domanda
     showQuestion();
@@ -243,14 +137,6 @@ function updateProgressBar() {
     const totalQuestions = questions.length;
     const progressPercentage = ((currentQuestion) / totalQuestions) * 100;
     progressBar.style.width = progressPercentage + '%';
-}
-
-// 9. Funzione per Aggiornare il Punteggio Visualizzato
-function updateScoreDisplay() {
-    const scoreDisplay = document.getElementById('score-display');
-    if (scoreDisplay) {
-        scoreDisplay.textContent = 'Score: ' + score;
-    }
 }
 
 // 10. Funzione per Mostrare il Risultato Finale
