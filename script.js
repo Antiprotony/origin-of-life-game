@@ -146,13 +146,32 @@ const startButton = document.getElementById('start-button');
 
 // 5. Function to Start the Game
 function startGame() {
-    // Start the background music
+    // Avvia la musica di sottofondo
     backgroundMusic.play();
 
-    // Hide the Start Game button
+    // Nascondi il pulsante Start Game
     startButton.style.display = 'none';
 
-    // Show the first question
+    // Nascondi l'immagine "Insert Coin to Play"
+    const insertCoin = document.getElementById('insert-coin');
+    if (insertCoin) {
+        insertCoin.style.display = 'none';
+    }
+
+    // Mostra la barra di progressione
+    const progressContainer = document.getElementById('progress-container');
+    if (progressContainer) {
+        progressContainer.style.display = 'block';
+    }
+
+    // Reimposta il punteggio e la domanda corrente
+    score = 0;
+    currentQuestion = 0;
+
+    // Aggiorna il punteggio visualizzato
+    updateScoreDisplay();
+
+    // Mostra la prima domanda
     showQuestion();
 }
 
@@ -161,13 +180,13 @@ function showQuestion() {
     const gameDiv = document.getElementById('game');
     const questionObj = questions[currentQuestion];
 
-    // Build the question content
+    // Costruisci il contenuto della domanda
     let html = `
         <img src="${questionObj.image}" alt="Image">
         <p>${questionObj.question}</p>
     `;
 
-    // Add answer options
+    // Aggiungi le opzioni di risposta
     questionObj.options.forEach((option, index) => {
         html += `
             <button class="button" onclick="selectOption(${index})">
@@ -177,6 +196,9 @@ function showQuestion() {
     });
 
     gameDiv.innerHTML = html;
+
+    // Aggiorna la barra di progressione
+    updateProgressBar();
 }
 
 // 7. Function to Handle Option Selection
@@ -197,11 +219,11 @@ function selectOption(index) {
     const gameDiv = document.getElementById('game');
     gameDiv.innerHTML += feedback;
 
-    // Disable buttons to prevent multiple answers
-    const buttons = document.querySelectorAll('.button');
+    // Disabilita i pulsanti per evitare risposte multiple
+    const buttons = document.querySelectorAll('#game .button');
     buttons.forEach(button => button.disabled = true);
 
-    // Move to the next question after a short delay
+    // Passa alla domanda successiva dopo un breve ritardo
     currentQuestion++;
 
     setTimeout(() => {
@@ -210,10 +232,26 @@ function selectOption(index) {
         } else {
             showResults();
         }
-    }, 2000); // Wait 2 seconds
+    }, 2000); // Attendi 2 secondi
 }
 
-// 8. Function to Show the Final Result
+// 8. Function to Update the Progress Bar
+function updateProgressBar() {
+    const progressBar = document.getElementById('progress-bar');
+    const totalQuestions = questions.length;
+    const progressPercentage = ((currentQuestion) / totalQuestions) * 100;
+    progressBar.style.width = progressPercentage + '%';
+}
+
+// 9. Function to Update the Score Display
+function updateScoreDisplay() {
+    const scoreDisplay = document.getElementById('score-display');
+    if (scoreDisplay) {
+        scoreDisplay.textContent = 'Score: ' + score;
+    }
+}
+
+// 10. Function to Show the Final Result
 function showResults() {
     const gameDiv = document.getElementById('game');
     let message = '';
@@ -263,20 +301,54 @@ function showResults() {
         message = `<h2>${percentage}% - I'm sorry, but maybe you need to start over.</h2>`;
     }
 
-
     gameDiv.innerHTML = `
         ${message}
         <p>Final Score: ${score} out of ${maxScore}</p>
         <button class="button" onclick="restartGame()">Play Again</button>
     `;
+
+    // Nascondi la barra di progressione
+    const progressContainer = document.getElementById('progress-container');
+    if (progressContainer) {
+        progressContainer.style.display = 'none';
+    }
 }
 
-// 9. Function to Restart the Game
+// 11. Function to Restart the Game
 function restartGame() {
     score = 0;
     currentQuestion = 0;
-    startButton.style.display = 'inline-block';
-    document.getElementById('game').innerHTML = '';
-}
 
-// Note: Mute Music functionality has been removed as per your request.
+    // Mostra il pulsante Start Game
+    startButton.style.display = 'inline-block';
+
+    // Reimposta la barra di progressione
+    const progressBar = document.getElementById('progress-bar');
+    if (progressBar) {
+        progressBar.style.width = '0%';
+    }
+
+    // Nascondi il contenitore della barra di progressione
+    const progressContainer = document.getElementById('progress-container');
+    if (progressContainer) {
+        progressContainer.style.display = 'none';
+    }
+
+    // Mostra l'immagine "Insert Coin to Play"
+    const insertCoin = document.getElementById('insert-coin');
+    if (insertCoin) {
+        insertCoin.style.display = 'block';
+    }
+
+    // Pulisci il contenuto del gioco
+    const gameDiv = document.getElementById('game');
+    if (gameDiv) {
+        gameDiv.innerHTML = '';
+    }
+
+    // Ferma e resetta la musica di sottofondo
+    if (backgroundMusic) {
+        backgroundMusic.pause();
+        backgroundMusic.currentTime = 0;
+    }
+}
