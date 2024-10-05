@@ -83,7 +83,7 @@ body::after {
     padding: 20px;
     border: 4px solid #00ff00;
     background: rgba(0, 0, 0, 0.7);
-    border-radius: 15px;
+    /* border-radius: 15px; */
     position: relative;
 }
 
@@ -214,8 +214,8 @@ h1 {
     margin-bottom: 10px;
     animation: blink 2s infinite, pulse 3s infinite; /* Applicazione delle animazioni blink e pulse */
     /* Aggiunta di bordi pixelati */
-    border: 2px solid #00ff00;
-    image-rendering: pixelated;
+    /* border: 2px solid #00ff00;
+    /* image-rendering: pixelated;
 }
 
 /* Animazione lampeggiante per la moneta */
