@@ -157,7 +157,7 @@ const questions = [
     {
         question: "Other planets I've met are talking about their life and LUCA. But, who is LUCA?",
         options: [
-            { text: "The creator of this wonderful game!", correct: false },
+            { text: "The creator of this wonderful game!", correct: true },
             { text: "The Last Universal Common Ancestor!", correct: true }
         ],
         image: "images/luca.png"
