@@ -129,6 +129,38 @@ const questions = [
             { text: "Moons and planets", correct: false }
         ],
         image: "images/panspermia.png"
+    },
+     {
+        question: "I've heard that laboratories can create prebiotic molecules. A couple of scientists did this. Who are they?",
+        options: [
+            { text: "Miller and Urey", correct: true },
+            { text: "Born and Oppenheimer", correct: false }
+        ],
+        image: "images/miller.png"
+    },
+    {
+        question: "A planet friend of mine has already originated life. Seen from above, it looks purple. That's probably due to the earliest photosynthetic life on it. But why purple?",
+        options: [
+            { text: "Presence of porphyrin-based chlorophyll", correct: false },
+            { text: "Presence of retinal-like molecules", correct: true }
+        ],
+        image: "images/purple.png"
+    },
+    {
+        question: "I think we are almost ready, but I would like to use another source of energy that can provide the necessary energy for forming complex organic molecules.",
+        options: [
+            { text: "Lightnings", correct: true },
+            { text: "Nuclear Energy", correct: false }
+        ],
+        image: "images/fulmini.png"
+    },
+    {
+        question: "Other planets I've met are talking about their life and LUCA. But, who is LUCA?",
+        options: [
+            { text: "The creator of this wonderful game!", correct: false },
+            { text: "The Last Universal Common Ancestor!", correct: true }
+        ],
+        image: "images/luca.png"
     }
     // You can add more questions here if you like
 ];
