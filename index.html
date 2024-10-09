@@ -6,21 +6,22 @@
     <link rel="stylesheet" href="styles.css">
     <!-- Include the font if needed -->
     <link href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap" rel="stylesheet">
-    <!-- Aggiungi questo meta tag per ottimizzazione mobile -->
+    <!-- Meta tag for mobile optimization -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
     <div class="game-container">
         <h1>ORIGIN OF LIFE</h1>
         
-        <!-- Inserisci l'immagine della moneta con testo -->
+        <!-- Insert Coin Image and Text -->
         <div id="insert-coin">
             <img src="images/coin.png" alt="Insert Coin" class="coin-image">
+            <p class="insert-coin-text">INSERT COIN TO PLAY</p>
         </div>
         
         <button class="button" id="start-button" onclick="startGame()">INSERT COIN TO PLAY</button>
         
-        <!-- Barra di progressione -->
+        <!-- Progress Bar -->
         <div id="progress-container" style="display: none;">
             <div id="progress-bar"></div>
         </div>
@@ -40,12 +41,12 @@
         <source src="audio/background-music.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
-
-     <!-- Easter Egg Modal -->
+    
+    <!-- Easter Egg Modal (Placed outside the game-container) -->
     <div id="easterEggModal" class="modal">
         <div class="modal-content">
             <span class="close-button">&times;</span>
-            <img src="images/image.png" alt="Easter Egg Image" class="modal-image">
+            <img src="images/easter-egg.png" alt="Easter Egg Image" class="modal-image">
             <p class="modal-text">That's the real correct answer!</p>
         </div>
     </div>
