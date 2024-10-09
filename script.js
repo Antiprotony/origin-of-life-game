@@ -43,7 +43,7 @@ const questions = [
         image: "images/fumarole.png"
     },
     {
-        question: "The conditions are perfect (maybe)! Now we need the first molecule able to replicate with a degree of information. Which is..",
+        question: "The conditions are perfect (maybe)! Now we need the first molecule able to replicate with a degree of information. Which is...",
         options: [
             { text: "Protein", correct: false },
             { text: "DNA/RNA", correct: true }
@@ -51,7 +51,7 @@ const questions = [
         image: "images/dna.png"
     },
     {
-        question: "Molecules, energy, warm waters. The primordial soup! Now macromoleculs are inside pores of rocks, we need something more biotic to confine them",
+        question: "Molecules, energy, warm waters. The primordial soup! Now macromolecules are inside pores of rocks, we need something more biotic to confine them.",
         options: [
             { text: "We produce vitamins", correct: false },
             { text: "We produce lipids", correct: true }
@@ -75,7 +75,7 @@ const questions = [
         image: "images/nucleotides.png"
     },
     {
-        question: "What can help me to keep me warm",
+        question: "What can help me to keep me warm?",
         options: [
             { text: "Presence of deeply shadowed cavities", correct: false },
             { text: "Albedo effect", correct: true }
@@ -86,15 +86,15 @@ const questions = [
         question: "On the bottom of my oceans something is mixing chemicals with the water! What is it?",
         options: [
             { text: "A big magmatic cauldron!", correct: false },
-            { text: "Oh! An Hydrothermal Vent!", correct: true }
+            { text: "Oh! A Hydrothermal Vent!", correct: true }
         ],
         image: "images/hydrothermal_vent.png"
     },
     {
-        question: "In my primordial phase, Which gasses I need to host life?",
+        question: "In my primordial phase, which gases do I need to host life?",
         options: [
-            { text: "Oxygen, and Noble Gasses", correct: false },
-            { text: "Methane, Ammonia and Hydrogen Sulfide", correct: true }
+            { text: "Oxygen and Noble Gases", correct: false },
+            { text: "Methane, Ammonia, and Hydrogen Sulfide", correct: true }
         ],
         image: "images/abiogenesis.png"
     },
@@ -107,7 +107,7 @@ const questions = [
         image: "images/rna_world.png"
     },
     {
-        question: "Which type of chemical bond I required for the formation of complex organic molecules?",
+        question: "Which type of chemical bond do I require for the formation of complex organic molecules?",
         options: [
             { text: "Covalent bond", correct: true },
             { text: "Ionic bond", correct: false }
@@ -115,26 +115,26 @@ const questions = [
         image: "images/covalent_bond.png"
     },
     {
-        question: "Some of you told me that I really need lipids. But Why?!",
+        question: "Some of you told me that I really need lipids. But why?!",
         options: [
-            { text: "They are able to produce essentials molecules for living organisms", correct: false },
+            { text: "They are able to produce essential molecules for living organisms", correct: false },
             { text: "They model early cell membranes", correct: true }
         ],
         image: "images/liposome.png"
     },
     {
-        question: "I really would like to have life on my surface! But sometime I miss of chemicals. Maybe my celestial friends can help me. But, Who?",
+        question: "I really would like to have life on my surface! But sometimes I miss chemicals. Maybe my celestial friends can help me. But, who?",
         options: [
             { text: "Comets and asteroids", correct: true },
             { text: "Moons and planets", correct: false }
         ],
         image: "images/panspermia.png"
     },
-     {
+    {
         question: "I've heard that laboratories can create prebiotic molecules. A couple of scientists did this. Who are they?",
         options: [
             { text: "Miller and Urey", correct: true },
-            { text: "Born and Oppenheimer", correct: false }
+            { text: "Born and Oppenheimer", correct: false } // Easter egg trigger
         ],
         image: "images/miller.png"
     },
@@ -149,7 +149,7 @@ const questions = [
     {
         question: "I think we are almost ready, but I would like to use another source of energy that can provide the necessary energy for forming complex organic molecules.",
         options: [
-            { text: "Lightnings", correct: true },
+            { text: "Lightning", correct: true },
             { text: "Nuclear Energy", correct: false }
         ],
         image: "images/fulmini.png"
@@ -157,7 +157,7 @@ const questions = [
     {
         question: "Other planets I've met are talking about their life and LUCA. But, who is LUCA?",
         options: [
-            { text: "The creator of this wonderful game!", correct: true },
+            { text: "The creator of this wonderful game!", correct: false }, // Easter egg trigger
             { text: "The Last Universal Common Ancestor!", correct: true }
         ],
         image: "images/luca.png"
@@ -167,61 +167,60 @@ const questions = [
 
 // 2. Variables to Keep Track of Game State
 let score = 0; // Variable to track the score
-let currentQuestion = 0; // Index of the current question
+let currentQuestionIndex = 0; // Index of the current question
 
-// 3. Calculate the Maximum Score
-const maxScore = questions.length * 10; // Assuming 10 points per correct answer
-
-// 4. Get References to HTML Elements
+// 3. Get References to HTML Elements
 const backgroundMusic = document.getElementById('background-music');
 const startButton = document.getElementById('start-button');
+const gameDiv = document.getElementById('game');
 
-// 5. Function to Start the Game
+// 4. Function to Start the Game
 function startGame() {
-    // Avvia la musica di sottofondo
+    // Play background music
     backgroundMusic.play();
 
-    // Nascondi il pulsante Start Game
+    // Hide the Start Game button
     startButton.style.display = 'none';
 
-    // Nascondi l'immagine "Insert Coin to Play"
+    // Hide the "Insert Coin" image
     const insertCoin = document.getElementById('insert-coin');
     if (insertCoin) {
         insertCoin.style.display = 'none';
     }
 
-    // Mostra la barra di progressione
+    // Show the progress bar
     const progressContainer = document.getElementById('progress-container');
     if (progressContainer) {
         progressContainer.style.display = 'block';
     }
 
-    // Reimposta il punteggio e la domanda corrente
+    // Reset score and current question
     score = 0;
-    currentQuestion = 0;
+    currentQuestionIndex = 0;
 
-    // Aggiorna il punteggio visualizzato
-    updateScoreDisplay();
-
-    // Mostra la prima domanda
+    // Show the first question
     showQuestion();
 }
 
-// 6. Function to Show the Current Question
+// 5. Function to Show the Current Question
 function showQuestion() {
-    const gameDiv = document.getElementById('game');
-    const questionObj = questions[currentQuestion];
+    const questionObj = questions[currentQuestionIndex];
 
-    // Costruisci il contenuto della domanda
+    // Build the question content
     let html = `
         <img src="${questionObj.image}" alt="Image">
         <p>${questionObj.question}</p>
     `;
 
-    // Aggiungi le opzioni di risposta
+    // Add answer options
     questionObj.options.forEach((option, index) => {
+        // Add data attribute to identify the Easter egg trigger
+        let dataAttribute = '';
+        if (option.text === "The creator of this wonderful game!") {
+            dataAttribute = 'data-easter-egg="true"';
+        }
         html += `
-            <button class="button" onclick="selectOption(${index})">
+            <button class="button" onclick="selectOption(${index})" ${dataAttribute}>
                 ${option.text}
             </button>
         `;
@@ -229,65 +228,64 @@ function showQuestion() {
 
     gameDiv.innerHTML = html;
 
-    // Aggiorna la barra di progressione
+    // Update the progress bar
     updateProgressBar();
 }
 
-// 7. Function to Handle Option Selection
+// 6. Function to Handle Option Selection
 function selectOption(index) {
-    const questionObj = questions[currentQuestion];
+    const questionObj = questions[currentQuestionIndex];
     const option = questionObj.options[index];
+    const selectedButton = gameDiv.querySelectorAll('.button')[index];
+    const isEasterEgg = selectedButton.getAttribute('data-easter-egg') === 'true';
 
-    // Check if the answer is correct
-    let feedback = '';
-    if (option.correct) {
-        score += 10;
-        feedback = `<p class="feedback correct">Correct! Score: ${score}</p>`;
-    } else {
-        feedback = `<p class="feedback incorrect">Incorrect. Score: ${score}</p>`;
+    if (isEasterEgg) {
+        // Show the Easter Egg modal
+        showEasterEgg();
     }
 
-    // Display feedback
-    const gameDiv = document.getElementById('game');
-    gameDiv.innerHTML += feedback;
+    // Check if the answer is correct
+    if (option.correct) {
+        score += 10;
+        appendFeedback("Correct! Score: " + score, true);
+    } else {
+        appendFeedback("Incorrect. Score: " + score, false);
+    }
 
-    // Disabilita i pulsanti per evitare risposte multiple
-    const buttons = document.querySelectorAll('#game .button');
+    // Disable all buttons to prevent multiple answers
+    const buttons = gameDiv.querySelectorAll('.button');
     buttons.forEach(button => button.disabled = true);
 
-    // Passa alla domanda successiva dopo un breve ritardo
-    currentQuestion++;
-
+    // Move to the next question after a short delay
+    currentQuestionIndex++;
     setTimeout(() => {
-        if (currentQuestion < questions.length) {
+        if (currentQuestionIndex < questions.length) {
             showQuestion();
         } else {
             showResults();
         }
-    }, 2000); // Attendi 2 secondi
+    }, 2000); // 2-second delay
+}
+
+// 7. Function to Append Feedback
+function appendFeedback(message, isCorrect) {
+    const feedbackClass = isCorrect ? 'correct' : 'incorrect';
+    gameDiv.innerHTML += `
+        <p class="feedback ${feedbackClass}">${message}</p>
+    `;
 }
 
 // 8. Function to Update the Progress Bar
 function updateProgressBar() {
     const progressBar = document.getElementById('progress-bar');
-    const totalQuestions = questions.length;
-    const progressPercentage = ((currentQuestion) / totalQuestions) * 100;
+    const progressPercentage = ((currentQuestionIndex) / questions.length) * 100;
     progressBar.style.width = progressPercentage + '%';
 }
 
-// 9. Function to Update the Score Display
-function updateScoreDisplay() {
-    const scoreDisplay = document.getElementById('score-display');
-    if (scoreDisplay) {
-        scoreDisplay.textContent = 'Score: ' + score;
-    }
-}
-
-// 10. Function to Show the Final Result
+// 9. Function to Show the Final Result
 function showResults() {
-    const gameDiv = document.getElementById('game');
     let message = '';
-    let percentage = (score / maxScore) * 100;
+    let percentage = (score / (questions.length * 10)) * 100;
 
     if (percentage === 100) {
         message = `<h2>${percentage}% - You have achieved stable life, and your planet will flourish!</h2>`;
@@ -302,9 +300,9 @@ function showResults() {
     } else if (percentage >= 75) {
         message = `<h2>${percentage}% - The planet is shaping up, water is warm, rocks are ready, but key components are missing.</h2>`;
     } else if (percentage >= 70) {
-        message = `<h2>${percentage}% - You have water, but the atmosphere is unstable. Maybe was the magnetic field?</h2>`;
+        message = `<h2>${percentage}% - You have water, but the atmosphere is unstable. Maybe it was the magnetic field?</h2>`;
     } else if (percentage >= 65) {
-        message = `<h2>${percentage}% - Basic elements are present, same for an atmosphere and an oceans, but conditions are harsh.</h2>`;
+        message = `<h2>${percentage}% - Basic elements are present, same for an atmosphere and oceans, but conditions are harsh.</h2>`;
     } else if (percentage >= 60) {
         message = `<h2>${percentage}% - Volcanic activity dominates; life is unlikely.</h2>`;
     } else if (percentage >= 55) {
@@ -335,69 +333,71 @@ function showResults() {
 
     gameDiv.innerHTML = `
         ${message}
-        <p>Final Score: ${score} out of ${maxScore}</p>
+        <p>Final Score: ${score} out of ${questions.length * 10}</p>
         <button class="button" onclick="restartGame()">Play Again</button>
     `;
 
-    // Nascondi la barra di progressione
+    // Hide the progress bar
     const progressContainer = document.getElementById('progress-container');
     if (progressContainer) {
         progressContainer.style.display = 'none';
     }
+
+    // Stop the background music
+    backgroundMusic.pause();
 }
 
-// 11. Function to Restart the Game
+// 10. Function to Restart the Game
 function restartGame() {
     score = 0;
-    currentQuestion = 0;
+    currentQuestionIndex = 0;
 
-    // Mostra il pulsante Start Game
+    // Show the Start Game button
     startButton.style.display = 'inline-block';
 
-    // Reimposta la barra di progressione
+    // Reset the progress bar
     const progressBar = document.getElementById('progress-bar');
     if (progressBar) {
         progressBar.style.width = '0%';
     }
 
-    // Nascondi il contenitore della barra di progressione
+    // Hide the progress bar container
     const progressContainer = document.getElementById('progress-container');
     if (progressContainer) {
         progressContainer.style.display = 'none';
     }
 
-    // Mostra l'immagine "Insert Coin to Play"
+    // Show the "Insert Coin" image
     const insertCoin = document.getElementById('insert-coin');
     if (insertCoin) {
         insertCoin.style.display = 'block';
     }
 
-    // Pulisci il contenuto del gioco
-    const gameDiv = document.getElementById('game');
+    // Clear the game content
     if (gameDiv) {
         gameDiv.innerHTML = '';
     }
 
-    // Ferma e resetta la musica di sottofondo
+    // Stop and reset the background music
     if (backgroundMusic) {
         backgroundMusic.pause();
         backgroundMusic.currentTime = 0;
     }
 }
 
-// 12. Function to Show the Easter Egg Modal
+// 11. Function to Show the Easter Egg Modal
 function showEasterEgg() {
     const modal = document.getElementById('easterEggModal');
     modal.style.display = 'block';
 }
 
-// 13. Function to Close the Modal
+// 12. Function to Close the Modal
 function closeModal() {
     const modal = document.getElementById('easterEggModal');
     modal.style.display = 'none';
 }
 
-// 14. Event Listeners for Closing the Modal
+// 13. Event Listeners for Closing the Modal
 document.addEventListener('DOMContentLoaded', () => {
     const closeButton = document.querySelector('.close-button');
     closeButton.addEventListener('click', closeModal);
