@@ -11,7 +11,7 @@ const questions = [
         image: "images/planet.png"
     },
     {
-        question: "You have created an atmosphere and than an ocean. Which chemical elements are mostly required on lands and waters?",
+        question: "You have created an atmosphere and then an ocean. Which chemical elements are mostly required on lands and waters?",
         options: [
             { text: "Ca, K, Sc, As, Au", correct: false },
             { text: "C, N, O, P, S, H", correct: true }
@@ -384,3 +384,29 @@ function restartGame() {
         backgroundMusic.currentTime = 0;
     }
 }
+
+// 12. Function to Show the Easter Egg Modal
+function showEasterEgg() {
+    const modal = document.getElementById('easterEggModal');
+    modal.style.display = 'block';
+}
+
+// 13. Function to Close the Modal
+function closeModal() {
+    const modal = document.getElementById('easterEggModal');
+    modal.style.display = 'none';
+}
+
+// 14. Event Listeners for Closing the Modal
+document.addEventListener('DOMContentLoaded', () => {
+    const closeButton = document.querySelector('.close-button');
+    closeButton.addEventListener('click', closeModal);
+
+    // Close the modal when clicking outside of the modal content
+    window.addEventListener('click', function(event) {
+        const modal = document.getElementById('easterEggModal');
+        if (event.target === modal) {
+            modal.style.display = 'none';
+        }
+    });
+});
