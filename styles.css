@@ -282,17 +282,22 @@ h1 {
     height: 100%; /* Full height */
     overflow: auto; /* Enable scroll if needed */
     background-color: rgba(0, 0, 0, 0.8); /* Black with opacity */
+    align-items: center;
+    justify-content: center;
 }
 
 .modal-content {
-    background-color: #fefefe;
-    margin: 15% auto; /* 15% from the top and centered */
+    background-color: #1a1a1a;
+    margin: auto; /* 15% from the top and centered */
     padding: 20px;
     border: 2px solid #00ff00;
     width: 80%; /* Could be more or less, depending on screen size */
     max-width: 500px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
     text-align: center;
     position: relative;
+    animation: fadeIn 0.5s ease;
 }
 
 .close-button {
@@ -308,7 +313,7 @@ h1 {
 
 .close-button:hover,
 .close-button:focus {
-    color: black;
+    color: #fff;
     text-decoration: none;
 }
 
@@ -316,11 +321,37 @@ h1 {
     max-width: 100%;
     height: auto;
     margin-bottom: 15px;
+    border: 2px solid #00ff00; /* Green border to match theme */
+    border-radius: 5px; /* Slightly rounded corners */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.5);
 }
 
 .modal-text {
     font-size: 18px;
-    color: #333;
+    color: #ffffff; /* White text for contrast */
+    text-shadow: 1px 1px #000000;
+}
+/* Fade-In Animation */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* --- Ensure Modal is Centered --- */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.modal {
+    display: none; /* Ensure it's hidden by default */
+    display: flex; /* Use flexbox for centering */
+}
+
+/* --- Prevent Background Scroll When Modal is Open --- */
+body.modal-open {
+    overflow: hidden;
 }
 
 /* Responsive Design for Screens with Maximum Width of 600px */
