@@ -1,220 +1,77 @@
 // script.js
 
-// 1. Game Questions
+// 1. Domande del Gioco
 const questions = [
     {
-        question: "You are a young planet forming in the habitable zone. What do you do first?",
+        question: "Sei un giovane pianeta che si sta formando nella zona abitabile. Cosa fai per primo?",
         options: [
-            { text: "Create an ocean", correct: false },
-            { text: "Create an atmosphere", correct: true }
+            { text: "Creare un oceano", correct: false },
+            { text: "Creare un'atmosfera", correct: true }
         ],
         image: "images/planet.png"
     },
+    // ... [Altre domande qui]
     {
-        question: "You have created an atmosphere and then an ocean. Which chemical elements are mostly required on lands and waters?",
+        question: "Altri pianeti che ho incontrato parlano della loro vita e di LUCA. Ma chi è LUCA?",
         options: [
-            { text: "Ca, K, Sc, As, Au", correct: false },
-            { text: "C, N, O, P, S, H", correct: true }
-        ],
-        image: "images/elements.png"
-    },
-    {
-        question: "Now the source of energy! Which is the main energy source that you need in order to originate life?",
-        options: [
-            { text: "Geothermal gradient", correct: true },
-            { text: "Solar energy", correct: false }
-        ],
-        image: "images/energy.png"
-    },
-    {
-        question: "Now you have a stable atmosphere, geothermal gradients and so on. What do you need next?",
-        options: [
-            { text: "Solid rocks", correct: false },
-            { text: "Porous rocks", correct: true }
-        ],
-        image: "images/molecole.png"
-    },
-    {
-        question: "The main ingredients are ready! Which conditions are probably the best for the formation of prebiotic molecules?",
-        options: [
-            { text: "Warm water, moderate UV radiation", correct: true },
-            { text: "Cold water, high UV radiation", correct: false }
-        ],
-        image: "images/fumarole.png"
-    },
-    {
-        question: "The conditions are perfect (maybe)! Now we need the first molecule able to replicate with a degree of information. Which is...",
-        options: [
-            { text: "Protein", correct: false },
-            { text: "DNA/RNA", correct: true }
-        ],
-        image: "images/dna.png"
-    },
-    {
-        question: "Molecules, energy, warm waters. The primordial soup! Now macromolecules are inside pores of rocks, we need something more biotic to confine them.",
-        options: [
-            { text: "We produce vitamins", correct: false },
-            { text: "We produce lipids", correct: true }
-        ],
-        image: "images/primordial_soup.png"
-    },
-    {
-        question: "I need something more..",
-        options: [
-            { text: "U, Th, Xe, Ar, Sb", correct: false },
-            { text: "Fe, Mo, Cu, Ni, W", correct: true }
-        ],
-        image: "images/miller_urey.png"
-    },
-    {
-        question: "I forgot something probably fundamental!",
-        options: [
-            { text: "Strong magnetic field", correct: true },
-            { text: "Weak magnetic field", correct: false }
-        ],
-        image: "images/nucleotides.png"
-    },
-    {
-        question: "What can help me to keep me warm?",
-        options: [
-            { text: "Presence of deeply shadowed cavities", correct: false },
-            { text: "Albedo effect", correct: true }
-        ],
-        image: "images/rna.png"
-    },
-    {
-        question: "On the bottom of my oceans something is mixing chemicals with the water! What is it?",
-        options: [
-            { text: "A big magmatic cauldron!", correct: false },
-            { text: "Oh! A Hydrothermal Vent!", correct: true }
-        ],
-        image: "images/hydrothermal_vent.png"
-    },
-    {
-        question: "In my primordial phase, which gases do I need to host life?",
-        options: [
-            { text: "Oxygen and Noble Gases", correct: false },
-            { text: "Methane, Ammonia, and Hydrogen Sulfide", correct: true }
-        ],
-        image: "images/abiogenesis.png"
-    },
-    {
-        question: "I think that I'm almost ready for life. Which life can I choose first?",
-        options: [
-            { text: "Eukaryotes", correct: false },
-            { text: "Prokaryotes", correct: true }
-        ],
-        image: "images/rna_world.png"
-    },
-    {
-        question: "Which type of chemical bond do I require for the formation of complex organic molecules?",
-        options: [
-            { text: "Covalent bond", correct: true },
-            { text: "Ionic bond", correct: false }
-        ],
-        image: "images/covalent_bond.png"
-    },
-    {
-        question: "Some of you told me that I really need lipids. But why?!",
-        options: [
-            { text: "They are able to produce essential molecules for living organisms", correct: false },
-            { text: "They model early cell membranes", correct: true }
-        ],
-        image: "images/liposome.png"
-    },
-    {
-        question: "I really would like to have life on my surface! But sometimes I miss chemicals. Maybe my celestial friends can help me. But, who?",
-        options: [
-            { text: "Comets and asteroids", correct: true },
-            { text: "Moons and planets", correct: false }
-        ],
-        image: "images/panspermia.png"
-    },
-    {
-        question: "I've heard that laboratories can create prebiotic molecules. A couple of scientists did this. Who are they?",
-        options: [
-            { text: "Miller and Urey", correct: true },
-            { text: "Born and Oppenheimer", correct: false } // Easter egg trigger
-        ],
-        image: "images/miller.png"
-    },
-    {
-        question: "A planet friend of mine has already originated life. Seen from above, it looks purple. That's probably due to the earliest photosynthetic life on it. But why purple?",
-        options: [
-            { text: "Presence of porphyrin-based chlorophyll", correct: false },
-            { text: "Presence of retinal-like molecules", correct: true }
-        ],
-        image: "images/purple.png"
-    },
-    {
-        question: "I think we are almost ready, but I would like to use another source of energy that can provide the necessary energy for forming complex organic molecules.",
-        options: [
-            { text: "Lightning", correct: true },
-            { text: "Nuclear Energy", correct: false }
-        ],
-        image: "images/fulmini.png"
-    },
-    {
-        question: "Other planets I've met are talking about their life and LUCA. But, who is LUCA?",
-        options: [
-            { text: "The creator of this wonderful game!", correct: false }, // Easter egg trigger
+            { text: "The creator of this wonderful game!", correct: false }, // Trigger dell'Easter Egg
             { text: "The Last Universal Common Ancestor!", correct: true }
         ],
         image: "images/luca.png"
     }
-    // You can add more questions here if you like
+    // Assicurati che tutte le domande siano uniche
 ];
 
-// 2. Variables to Keep Track of Game State
-let score = 0; // Variable to track the score
-let currentQuestionIndex = 0; // Index of the current question
+// 2. Variabili per lo stato del gioco
+let score = 0; // Punteggio
+let currentQuestionIndex = 0; // Indice della domanda corrente
 
-// 3. Get References to HTML Elements
+// 3. Riferimenti agli elementi HTML
 const backgroundMusic = document.getElementById('background-music');
 const startButton = document.getElementById('start-button');
 const gameDiv = document.getElementById('game');
 
-// 4. Function to Start the Game
+// 4. Funzione per avviare il gioco
 function startGame() {
-    // Play background music
+    // Avvia la musica di sottofondo
     backgroundMusic.play();
 
-    // Hide the Start Game button
+    // Nascondi il pulsante Start Game
     startButton.style.display = 'none';
 
-    // Hide the "Insert Coin" image
+    // Nascondi l'immagine "Insert Coin"
     const insertCoin = document.getElementById('insert-coin');
     if (insertCoin) {
         insertCoin.style.display = 'none';
     }
 
-    // Show the progress bar
+    // Mostra la barra di progressione
     const progressContainer = document.getElementById('progress-container');
     if (progressContainer) {
         progressContainer.style.display = 'block';
     }
 
-    // Reset score and current question
+    // Reimposta punteggio e indice della domanda
     score = 0;
     currentQuestionIndex = 0;
 
-    // Show the first question
+    // Mostra la prima domanda
     showQuestion();
 }
 
-// 5. Function to Show the Current Question
+// 5. Funzione per mostrare la domanda corrente
 function showQuestion() {
     const questionObj = questions[currentQuestionIndex];
 
-    // Build the question content
+    // Costruisci il contenuto della domanda
     let html = `
         <img src="${questionObj.image}" alt="Image">
         <p>${questionObj.question}</p>
     `;
 
-    // Add answer options
+    // Aggiungi le opzioni di risposta
     questionObj.options.forEach((option, index) => {
-        // Add data attribute to identify the Easter egg trigger
+        // Aggiungi un attributo data per identificare l'Easter Egg
         let dataAttribute = '';
         if (option.text === "The creator of this wonderful game!") {
             dataAttribute = 'data-easter-egg="true"';
@@ -228,11 +85,11 @@ function showQuestion() {
 
     gameDiv.innerHTML = html;
 
-    // Update the progress bar
+    // Aggiorna la barra di progressione
     updateProgressBar();
 }
 
-// 6. Function to Handle Option Selection
+// 6. Funzione per gestire la selezione di un'opzione
 function selectOption(index) {
     const questionObj = questions[currentQuestionIndex];
     const option = questionObj.options[index];
@@ -240,23 +97,23 @@ function selectOption(index) {
     const isEasterEgg = selectedButton.getAttribute('data-easter-egg') === 'true';
 
     if (isEasterEgg) {
-        // Show the Easter Egg modal
+        // Mostra il modal dell'Easter Egg
         showEasterEgg();
     }
 
-    // Check if the answer is correct
+    // Verifica se la risposta è corretta
     if (option.correct) {
         score += 10;
-        appendFeedback("Correct! Score: " + score, true);
+        appendFeedback("Corretto! Punteggio: " + score, true);
     } else {
-        appendFeedback("Incorrect. Score: " + score, false);
+        appendFeedback("Errato. Punteggio: " + score, false);
     }
 
-    // Disable all buttons to prevent multiple answers
+    // Disabilita tutti i pulsanti per evitare risposte multiple
     const buttons = gameDiv.querySelectorAll('.button');
     buttons.forEach(button => button.disabled = true);
 
-    // Move to the next question after a short delay
+    // Passa alla domanda successiva dopo un breve ritardo
     currentQuestionIndex++;
     setTimeout(() => {
         if (currentQuestionIndex < questions.length) {
@@ -264,10 +121,10 @@ function selectOption(index) {
         } else {
             showResults();
         }
-    }, 2000); // 2-second delay
+    }, 2000); // Ritardo di 2 secondi
 }
 
-// 7. Function to Append Feedback
+// 7. Funzione per aggiungere il feedback
 function appendFeedback(message, isCorrect) {
     const feedbackClass = isCorrect ? 'correct' : 'incorrect';
     gameDiv.innerHTML += `
@@ -275,138 +132,140 @@ function appendFeedback(message, isCorrect) {
     `;
 }
 
-// 8. Function to Update the Progress Bar
+// 8. Funzione per aggiornare la barra di progressione
 function updateProgressBar() {
     const progressBar = document.getElementById('progress-bar');
     const progressPercentage = ((currentQuestionIndex) / questions.length) * 100;
     progressBar.style.width = progressPercentage + '%';
 }
 
-// 9. Function to Show the Final Result
+// 9. Funzione per mostrare il risultato finale
 function showResults() {
     let message = '';
     let percentage = (score / (questions.length * 10)) * 100;
 
     if (percentage === 100) {
-        message = `<h2>${percentage}% - You have achieved stable life, and your planet will flourish!</h2>`;
+        message = `<h2>${percentage}% - Hai raggiunto una vita stabile, e il tuo pianeta fiorirà!</h2>`;
     } else if (percentage >= 95) {
-        message = `<h2>${percentage}% - You have obtained life, but be careful, it could go extinct.</h2>`;
+        message = `<h2>${percentage}% - Hai ottenuto la vita, ma fai attenzione, potrebbe estinguersi.</h2>`;
     } else if (percentage >= 90) {
-        message = `<h2>${percentage}% - Life is on the verge of forming, but one false step and you could lose it.</h2>`;
+        message = `<h2>${percentage}% - La vita è sul punto di formarsi, ma un passo falso e potresti perderla.</h2>`;
     } else if (percentage >= 85) {
-        message = `<h2>${percentage}% - Life is nearly formed, but the planet is not yet stable.</h2>`;
+        message = `<h2>${percentage}% - La vita è quasi formata, ma il pianeta non è ancora stabile.</h2>`;
     } else if (percentage >= 80) {
-        message = `<h2>${percentage}% - You have essential ingredients, something like a cell, but more is needed for life.</h2>`;
+        message = `<h2>${percentage}% - Hai ingredienti essenziali, qualcosa come una cellula, ma serve di più per la vita.</h2>`;
     } else if (percentage >= 75) {
-        message = `<h2>${percentage}% - The planet is shaping up, water is warm, rocks are ready, but key components are missing.</h2>`;
+        message = `<h2>${percentage}% - Il pianeta si sta formando, l'acqua è calda, le rocce sono pronte, ma mancano componenti chiave.</h2>`;
     } else if (percentage >= 70) {
-        message = `<h2>${percentage}% - You have water, but the atmosphere is unstable. Maybe it was the magnetic field?</h2>`;
+        message = `<h2>${percentage}% - Hai acqua, ma l'atmosfera è instabile. Forse è stato il campo magnetico?</h2>`;
     } else if (percentage >= 65) {
-        message = `<h2>${percentage}% - Basic elements are present, same for an atmosphere and oceans, but conditions are harsh.</h2>`;
+        message = `<h2>${percentage}% - Gli elementi base sono presenti, lo stesso per un'atmosfera e oceani, ma le condizioni sono dure.</h2>`;
     } else if (percentage >= 60) {
-        message = `<h2>${percentage}% - Volcanic activity dominates; life is unlikely.</h2>`;
+        message = `<h2>${percentage}% - L'attività vulcanica domina; la vita è improbabile.</h2>`;
     } else if (percentage >= 55) {
-        message = `<h2>${percentage}% - The planet is too cold; life cannot thrive.</h2>`;
+        message = `<h2>${percentage}% - Il pianeta è troppo freddo; la vita non può prosperare.</h2>`;
     } else if (percentage >= 50) {
-        message = `<h2>${percentage}% - You were halfway there, but something went wrong.</h2>`;
+        message = `<h2>${percentage}% - Sei a metà strada, ma qualcosa è andato storto.</h2>`;
     } else if (percentage >= 45) {
-        message = `<h2>${percentage}% - The atmosphere is toxic, unsuitable for life.</h2>`;
+        message = `<h2>${percentage}% - L'atmosfera è tossica, inadatta alla vita.</h2>`;
     } else if (percentage >= 40) {
-        message = `<h2>${percentage}% - Severe storms prevent the development of life.</h2>`;
+        message = `<h2>${percentage}% - Tempeste severe impediscono lo sviluppo della vita.</h2>`;
     } else if (percentage >= 35) {
-        message = `<h2>${percentage}% - Radiation levels are too high; life cannot form.</h2>`;
+        message = `<h2>${percentage}% - I livelli di radiazioni sono troppo alti; la vita non può formarsi.</h2>`;
     } else if (percentage >= 30) {
-        message = `<h2>${percentage}% - The planet lacks essential chemicals for life.</h2>`;
+        message = `<h2>${percentage}% - Il pianeta manca di sostanze chimiche essenziali per la vita.</h2>`;
     } else if (percentage >= 25) {
-        message = `<h2>${percentage}% - The planet is barren and lifeless.</h2>`;
+        message = `<h2>${percentage}% - Il pianeta è arido e privo di vita.</h2>`;
     } else if (percentage >= 20) {
-        message = `<h2>${percentage}% - You have a planet, but it's missing almost everything.</h2>`;
+        message = `<h2>${percentage}% - Hai un pianeta, ma manca quasi tutto.</h2>`;
     } else if (percentage >= 15) {
-        message = `<h2>${percentage}% - Just a rocky mass floating in space.</h2>`;
+        message = `<h2>${percentage}% - Solo una massa rocciosa che fluttua nello spazio.</h2>`;
     } else if (percentage >= 10) {
-        message = `<h2>${percentage}% - A lifeless rock with no atmosphere or water.</h2>`;
+        message = `<h2>${percentage}% - Una roccia senza vita con nessuna atmosfera o acqua.</h2>`;
     } else if (percentage >= 5) {
-        message = `<h2>${percentage}% - A failed attempt at planet formation.</h2>`;
+        message = `<h2>${percentage}% - Un tentativo fallito di formazione planetaria.</h2>`;
     } else {
-        message = `<h2>${percentage}% - I'm sorry, but maybe you need to start over.</h2>`;
+        message = `<h2>${percentage}% - Mi dispiace, forse devi ricominciare.</h2>`;
     }
 
     gameDiv.innerHTML = `
         ${message}
-        <p>Final Score: ${score} out of ${questions.length * 10}</p>
+        <p>Final Score: ${score} su ${questions.length * 10}</p>
         <button class="button" onclick="restartGame()">Play Again</button>
     `;
 
-    // Hide the progress bar
+    // Nascondi la barra di progressione
     const progressContainer = document.getElementById('progress-container');
     if (progressContainer) {
         progressContainer.style.display = 'none';
     }
 
-    // Stop the background music
+    // Ferma la musica di sottofondo
     backgroundMusic.pause();
 }
 
-// 10. Function to Restart the Game
+// 10. Funzione per riavviare il gioco
 function restartGame() {
     score = 0;
     currentQuestionIndex = 0;
 
-    // Show the Start Game button
+    // Mostra il pulsante Start Game
     startButton.style.display = 'inline-block';
 
-    // Reset the progress bar
+    // Reimposta la barra di progressione
     const progressBar = document.getElementById('progress-bar');
     if (progressBar) {
         progressBar.style.width = '0%';
     }
 
-    // Hide the progress bar container
+    // Nascondi il contenitore della barra di progressione
     const progressContainer = document.getElementById('progress-container');
     if (progressContainer) {
         progressContainer.style.display = 'none';
     }
 
-    // Show the "Insert Coin" image
+    // Mostra l'immagine "Insert Coin"
     const insertCoin = document.getElementById('insert-coin');
     if (insertCoin) {
         insertCoin.style.display = 'block';
     }
 
-    // Clear the game content
+    // Pulisci il contenuto del gioco
     if (gameDiv) {
         gameDiv.innerHTML = '';
     }
 
-    // Stop and reset the background music
+    // Ferma e resetta la musica di sottofondo
     if (backgroundMusic) {
         backgroundMusic.pause();
         backgroundMusic.currentTime = 0;
     }
 }
 
-// 11. Function to Show the Easter Egg Modal
+// 11. Funzione per mostrare il modal dell'Easter Egg
 function showEasterEgg() {
     const modal = document.getElementById('easterEggModal');
-    modal.style.display = 'block';
+    modal.style.display = 'flex'; // Usa flex per centrare il contenuto
+    document.body.classList.add('modal-open'); // Previene lo scroll del background
 }
 
-// 12. Function to Close the Modal
+// 12. Funzione per chiudere il modal
 function closeModal() {
     const modal = document.getElementById('easterEggModal');
     modal.style.display = 'none';
+    document.body.classList.remove('modal-open'); // Ripristina lo scroll del background
 }
 
-// 13. Event Listeners for Closing the Modal
+// 13. Event Listener per chiudere il modal
 document.addEventListener('DOMContentLoaded', () => {
     const closeButton = document.querySelector('.close-button');
     closeButton.addEventListener('click', closeModal);
 
-    // Close the modal when clicking outside of the modal content
+    // Chiudi il modal cliccando fuori dal contenuto
     window.addEventListener('click', function(event) {
         const modal = document.getElementById('easterEggModal');
         if (event.target === modal) {
-            modal.style.display = 'none';
+            closeModal();
         }
     });
 });
